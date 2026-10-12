@@ -1,0 +1,17 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}O‘chirish | ByteCore Dashboard{% endblock %}
+{% block page_title %}O‘chirishni tasdiqlash{% endblock %}
+
+{% block content %}
+    <section class="panel confirm-panel">
+        <p class="eyebrow">TASDIQLASH</p>
+        <h1>“{{ object }}” o‘chirilsinmi?</h1>
+        <p class="muted">Bu amalni ortga qaytarib bo‘lmaydi. Tegishli rasm/fayllar ham modeldan uziladi.</p>
+        <form method="post" class="form-actions">
+            {% csrf_token %}
+            <button class="button button-danger" type="submit">Ha, o‘chirish</button>
+            <a class="button button-secondary" href="{% url cancel_url %}">Bekor qilish</a>
+        </form>
+    </section>
+{% endblock %}

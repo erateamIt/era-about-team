@@ -1,0 +1,31 @@
+{% load static %}
+<header class="site-header">
+    <div class="container nav-shell">
+        <a href="{% url 'core:home' %}" class="brand" aria-label="ByteCore home">
+            {% if site_settings.logo %}
+                <span class="brand-logo-shell">
+                    <img class="brand-logo" src="{{ site_settings.logo.url }}" alt="{{ site_settings.company_name }} logo">
+                </span>
+            {% else %}
+                <span class="brand-mark-shell">
+                    <span class="brand-mark">B</span>
+                </span>
+                <span class="brand-text">{{ site_settings.company_name|default:"ByteCore" }}</span>
+            {% endif %}
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav id="main-nav" class="main-nav" aria-label="Asosiy navigatsiya">
+            <a href="{% url 'core:home' %}"{% if request.resolver_match.url_name == "home" %} class="active" aria-current="page"{% endif %}>Bosh sahifa</a>
+            <a href="{% url 'core:about' %}"{% if request.resolver_match.url_name == "about" %} class="active" aria-current="page"{% endif %}>Biz haqimizda</a>
+            <a href="{% url 'core:services' %}"{% if request.resolver_match.url_name == "services" or request.resolver_match.url_name == "service_detail" %} class="active" aria-current="page"{% endif %}>Xizmatlar</a>
+            <a href="{% url 'core:projects' %}"{% if request.resolver_match.url_name == "projects" or request.resolver_match.url_name == "project_detail" %} class="active" aria-current="page"{% endif %}>Loyihalar</a>
+            <a href="{% url 'contact:contact' %}"{% if request.resolver_match.url_name == "contact" %} class="active" aria-current="page"{% endif %}>Aloqa</a>
+        </nav>
+
+        <a class="btn btn-primary btn-small" href="{% url 'contact:contact' %}">Loyiha boshlash</a>
+    </div>
+</header>

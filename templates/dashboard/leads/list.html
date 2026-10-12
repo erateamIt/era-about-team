@@ -1,0 +1,41 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Buyurtmalar | ByteCore Dashboard{% endblock %}
+{% block page_title %}Buyurtmalar{% endblock %}
+
+{% block content %}
+    <div class="page-heading"><div><p class="eyebrow">MIJOZLAR</p><h1>Buyurtmalar</h1><p class="muted">Murojaatlarni qidiring, filtrlab ko‘ring va holatini yangilang.</p></div></div>
+    <section class="panel">
+        <form method="get" class="filter-bar">
+            <div class="filter-field search-field"><label for="{{ filter_form.q.id_for_label }}">Ism yoki telefon</label>{{ filter_form.q }}</div>
+            <div class="filter-field"><label for="{{ filter_form.status.id_for_label }}">Holat</label>{{ filter_form.status }}</div>
+            <div class="filter-field"><label for="{{ filter_form.date_from.id_for_label }}">Sanadan</label>{{ filter_form.date_from }}</div>
+            <div class="filter-field"><label for="{{ filter_form.date_to.id_for_label }}">Sanagacha</label>{{ filter_form.date_to }}</div>
+            <button class="button button-primary" type="submit">Filtrlash</button>
+            <a class="button button-quiet" href="{% url 'dashboard:leads' %}">Tozalash</a>
+        </form>
+        {% if filter_form.errors %}<div class="form-errors">{{ filter_form.errors }}</div>{% endif %}
+        {% if page_obj.object_list %}
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Sana</th><th>Mijoz</th><th>Telefon</th><th>Xizmat turi</th><th>Holat</th><th></th></tr></thead>
+                    <tbody>
+                        {% for lead in page_obj %}
+                            <tr>
+                                <td>{{ lead.created_at|date:"d.m.Y H:i" }}</td>
+                                <td class="primary-cell">{{ lead.full_name }}</td>
+                                <td>{{ lead.phone|default:"—" }}</td>
+                                <td>{{ lead.get_project_type_display }}</td>
+                                <td><span class="status-badge status-{{ lead.status }}">{{ lead.get_status_display }}</span></td>
+                                <td><a class="table-action" href="{% url 'dashboard:lead_detail' lead.pk %}">Tafsilotlar</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% include "dashboard/includes/pagination.html" %}
+        {% else %}
+            <div class="empty-state"><span class="empty-icon">▤</span><h3>Buyurtma topilmadi</h3><p>Tanlangan qidiruv va filtrlarga mos so‘rovlar yo‘q.</p></div>
+        {% endif %}
+    </section>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}404 | ByteCore{% endblock %}
+
+{% block content %}
+    <section class="section page-error">
+        <div class="container narrow reveal text-center">
+            <span class="eyebrow">404</span>
+            <h1>Sahifa topilmadi</h1>
+            <p>So‘ragan sahifa mavjud emas yoki ko‘chirilib yuborilgan bo‘lishi mumkin.</p>
+            <a class="btn btn-primary" href="{% url 'core:home' %}">Bosh sahifaga qaytish</a>
+        </div>
+    </section>
+{% endblock %}

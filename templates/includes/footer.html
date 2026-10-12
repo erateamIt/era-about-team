@@ -1,0 +1,49 @@
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <a href="{% url 'core:home' %}" class="brand brand-footer">
+                {% if site_settings.logo %}
+                    <img class="brand-logo" src="{{ site_settings.logo.url }}" alt="{{ site_settings.company_name }} logo">
+                {% else %}
+                    <span class="brand-mark">B</span>
+                    <span class="brand-text">{{ site_settings.company_name|default:"ByteCore" }}</span>
+                {% endif %}
+            </a>
+            <p>{{ site_settings.footer_text|default:site_settings.tagline }}</p>
+        </div>
+        <div>
+            <h4>Saytlar</h4>
+            <ul>
+                <li><a href="{% url 'core:about' %}">Biz haqimizda</a></li>
+                <li><a href="{% url 'core:services' %}">Xizmatlar</a></li>
+                <li><a href="{% url 'core:projects' %}">Loyihalar</a></li>
+                <li><a href="{% url 'contact:contact' %}">Aloqa</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Xizmatlar</h4>
+            <ul>
+                {% for service in footer_services %}
+                    <li><a href="{% url 'core:service_detail' slug=service.slug %}">{{ service.title }}</a></li>
+                {% empty %}
+                    <li><a href="{% url 'core:services' %}">Web saytlar</a></li>
+                    <li><a href="{% url 'core:services' %}">Telegram botlar</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <h4>Kontakt</h4>
+            <ul>
+                <li><a href="tel:{{ site_settings.phone }}">{{ site_settings.phone }}</a></li>
+                <li><a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a></li>
+                <li><a href="https://t.me/{{ site_settings.telegram_username }}" target="_blank" rel="noreferrer">Telegram</a></li>
+                {% if site_settings.instagram_url %}<li><a href="{{ site_settings.instagram_url }}" target="_blank" rel="noreferrer">Instagram</a></li>{% endif %}
+                {% if site_settings.linkedin_url %}<li><a href="{{ site_settings.linkedin_url }}" target="_blank" rel="noreferrer">LinkedIn</a></li>{% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <p>© {% now 'Y' %} ByteCore. Barcha huquqlar himoyalangan.</p>
+        <a href="{% url 'core:privacy' %}">Maxfiylik siyosati</a>
+    </div>
+</footer>

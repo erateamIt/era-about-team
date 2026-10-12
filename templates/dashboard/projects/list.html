@@ -1,0 +1,24 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Loyihalar | ByteCore Dashboard{% endblock %}
+{% block page_title %}Portfolio loyihalari{% endblock %}
+
+{% block content %}
+    <div class="page-heading"><div><p class="eyebrow">PORTFOLIO</p><h1>Loyihalar</h1><p class="muted">Nashr holati, texnologiyalar va portfolio ma’lumotlarini boshqaring.</p></div>{% if perms.projects.add_project %}<a class="button button-primary" href="{% url 'dashboard:project_create' %}">＋ Loyiha qo‘shish</a>{% endif %}</div>
+    <section class="panel">
+        <form method="get" class="filter-bar compact-filter"><div class="filter-field search-field"><label for="project-search">Qidiruv</label><input class="form-control" id="project-search" name="q" value="{{ request.GET.q }}" placeholder="Loyiha nomi yoki slug"></div><div class="filter-field"><label for="project-published">Nashr holati</label><select class="form-control" id="project-published" name="published"><option value="">Barchasi</option><option value="true"{% if request.GET.published == "true" %} selected{% endif %}>Nashr qilingan</option><option value="false"{% if request.GET.published == "false" %} selected{% endif %}>Qoralama</option></select></div><button class="button button-primary" type="submit">Qidirish</button></form>
+        {% if page_obj.object_list %}
+            <div class="table-wrap"><table><thead><tr><th>Loyiha</th><th>Texnologiyalar</th><th>Featured</th><th>Nashr holati</th><th>Amallar</th></tr></thead><tbody>
+                {% for project in page_obj %}
+                    <tr><td class="primary-cell">{{ project.title }}<small>{{ project.slug }}</small></td><td>{% for tech in project.technologies %}<span class="tag">{{ tech }}</span>{% empty %}—{% endfor %}</td><td>{% if project.is_featured %}Ha{% else %}Yo‘q{% endif %}</td><td><span class="status-badge{% if project.is_published %} status-completed{% else %} status-reviewing{% endif %}">{% if project.is_published %}Nashr qilingan{% else %}Qoralama{% endif %}</span></td><td class="actions-cell">
+                        {% if perms.projects.change_project %}<a class="table-action" href="{% url 'dashboard:project_edit' project.pk %}">Tahrirlash</a><form method="post" action="{% url 'dashboard:project_toggle' project.pk %}">{% csrf_token %}<button class="text-button" type="submit">{% if project.is_published %}Qoralama qilish{% else %}Nashr qilish{% endif %}</button></form>{% endif %}
+                        {% if perms.projects.delete_project %}<a class="table-action danger-link" href="{% url 'dashboard:project_delete' project.pk %}">O‘chirish</a>{% endif %}
+                    </td></tr>
+                {% endfor %}
+            </tbody></table></div>
+            {% include "dashboard/includes/pagination.html" %}
+        {% else %}
+            <div class="empty-state"><span class="empty-icon">▧</span><h3>Hozircha loyihalar yo‘q</h3><p>Portfolio uchun birinchi loyihani qo‘shing.</p></div>
+        {% endif %}
+    </section>
+{% endblock %}

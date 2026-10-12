@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Aloqa | ByteCore{% endblock %}
+
+{% block content %}
+    <section class="page-hero">
+        <div class="container narrow reveal">
+            <span class="eyebrow">Aloqa</span>
+            <h1>Biz bilan ishlashni boshlang</h1>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container contact-layout">
+            <div class="contact-card reveal">
+                <h2>Buyurtma formasi</h2>
+                <form method="post" class="contact-form">
+                    {% csrf_token %}
+                    <div class="form-honeypot" aria-hidden="true">{{ form.website }}</div>
+                    {% for field in form %}
+                        {% if field.name != "website" %}
+                        <div class="form-group">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% if field.errors %}
+                                <div class="field-error">{{ field.errors|join:', ' }}</div>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Yuborish</button>
+                </form>
+            </div>
+            <div class="contact-meta reveal">
+                <div class="mini-card"><span>Telefon</span><strong>{{ site_settings.phone }}</strong></div>
+                <div class="mini-card"><span>Email</span><strong>{{ site_settings.email }}</strong></div>
+                <div class="mini-card"><span>Telegram</span><strong>@{{ site_settings.telegram_username }}</strong></div>
+                <div class="mini-card"><span>Manzil</span><strong>{{ site_settings.address }}</strong></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

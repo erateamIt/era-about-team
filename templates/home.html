@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ site_settings.meta_title|default:'ByteCore | IT xizmatlari' }}{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-copy reveal">
+                <span class="eyebrow">ByteCore</span>
+                <h1>Biz biznesingiz uchun raqamli yechimlar yaratamiz.</h1>
+                <p>ByteCore — g‘oyalaringizni zamonaviy web-platformalar, avtomatlashtirish va dasturiy mahsulotlarga aylantiruvchi IT jamoa.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="{% url 'contact:contact' %}">Loyiha boshlash</a>
+                    <a class="btn btn-secondary" href="{% url 'core:projects' %}">Loyihalarimizni ko‘rish</a>
+                </div>
+                {% if site_settings.experience_stat or site_settings.projects_stat or site_settings.support_stat %}
+                    <ul class="hero-stats">
+                        {% if site_settings.experience_stat %}<li><strong>{{ site_settings.experience_stat }}</strong><span>Yillik tajriba</span></li>{% endif %}
+                        {% if site_settings.projects_stat %}<li><strong>{{ site_settings.projects_stat }}</strong><span>Bajarilgan loyihalar</span></li>{% endif %}
+                        {% if site_settings.support_stat %}<li><strong>{{ site_settings.support_stat }}</strong><span>Qo‘llab-quvvatlash</span></li>{% endif %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="hero-visual reveal">
+                <div class="orb orb-one"></div>
+                <div class="orb orb-two"></div>
+                <div class="dashboard-card">
+                    <div class="dashboard-head">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="chart-bars">
+                        <span style="height: 40%"></span>
+                        <span style="height: 65%"></span>
+                        <span style="height: 53%"></span>
+                        <span style="height: 85%"></span>
+                        <span style="height: 72%"></span>
+                        <span style="height: 96%"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-heading reveal">
+                <span class="eyebrow">Xizmatlar</span>
+                <h2>Biznesingizga mos yechimlar</h2>
+            </div>
+            <div class="card-grid services-grid">
+                {% for service in services %}
+                    <article class="card reveal">
+                        <div class="icon-box">{{ service.icon }}</div>
+                        <h3>{{ service.title }}</h3>
+                        <p>{{ service.short_description }}</p>
+                        <a href="{% url 'core:service_detail' slug=service.slug %}">Batafsil</a>
+                    </article>
+                {% empty %}
+                    <article class="card reveal"><h3>Veb-saytlar</h3><p>Biznes maqsadlariga mos zamonaviy raqamli tajriba.</p></article>
+                    <article class="card reveal"><h3>Telegram botlar</h3><p>Mijozlar bilan aloqa va ish jarayonlarini avtomatlashtirish.</p></article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-heading reveal">
+                <span class="eyebrow">Portfolio</span>
+                <h2>Tanlangan loyihalar</h2>
+            </div>
+            <div class="card-grid portfolio-grid">
+                {% for project in featured_projects %}
+                    <article class="project-card reveal">
+                        {% if project.cover_image %}
+                            <img src="{{ project.cover_image.url }}" alt="{{ project.title }}">
+                        {% else %}
+                            <div class="project-placeholder">{{ project.title }}</div>
+                        {% endif %}
+                        <div class="project-body">
+                            <h3>{{ project.title }}</h3>
+                            <p>{{ project.summary }}</p>
+                            <div class="tags">
+                                {% for tech in project.technologies %}
+                                    <span>{{ tech }}</span>
+                                {% endfor %}
+                            </div>
+                            <a href="{% url 'core:project_detail' slug=project.slug %}">Batafsil</a>
+                        </div>
+                    </article>
+                {% empty %}
+                    <article class="project-card reveal">
+                        <div class="project-placeholder">NovaTrade</div>
+                        <div class="project-body"><h3>NovaTrade</h3><p>B2B savdo platformasi</p></div>
+                    </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container split-layout">
+            <div class="section-copy reveal">
+                <span class="eyebrow">Biz haqimizda</span>
+                <h2>Raqamli transformatsiyani barqaror asosda quramiz.</h2>
+                <p>Biz kod, dizayn, avtomatlashtirish va mijoz tajribasini birgalikda boshqaramiz. Har bir loyiha uchun strategik yondashuv va ishlab chiqarishga tayyor arxitektura yaratamiz.</p>
+                <ul class="check-list">
+                    <li>Professional va tezkor ishlab chiqish</li>
+                    <li>Mahsulotga yo‘naltirilgan arxitektura</li>
+                    <li>Doimiy qo‘llab-quvvatlash va yangilanish</li>
+                </ul>
+                <a class="btn btn-secondary" href="{% url 'core:about' %}">Jamoamiz bilan tanishish</a>
+            </div>
+            <div class="info-panel reveal">
+                <div class="mini-card">
+                    <span>Missiya</span>
+                    <strong>Bizneslar uchun qulay, xavfsiz va o‘sishga qodir raqamli yechimlar yaratamiz.</strong>
+                </div>
+                <div class="mini-card">
+                    <span>Qadriyatlar</span>
+                    <strong>Yengillik, ishonchlilik, bemalol hamkorlik va sifat.</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-heading reveal">
+                <span class="eyebrow">Ish jarayoni</span>
+                <h2>Jarayonimiz aniq va shaffof</h2>
+            </div>
+            <div class="process-grid">
+                <div class="process-step reveal"><span>01</span><h3>Talablarni o‘rganish</h3></div>
+                <div class="process-step reveal"><span>02</span><h3>Rejalashtirish</h3></div>
+                <div class="process-step reveal"><span>03</span><h3>Dizayn va prototiplash</h3></div>
+                <div class="process-step reveal"><span>04</span><h3>Ishlab chiqish</h3></div>
+                <div class="process-step reveal"><span>05</span><h3>Testlash</h3></div>
+                <div class="process-step reveal"><span>06</span><h3>Topshirish va qo‘llab-quvvatlash</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-heading reveal">
+                <span class="eyebrow">Jamoa</span>
+                <h2>Texnik va biznes mutaxassislar</h2>
+            </div>
+            <div class="team-grid">
+                {% for member in team_members %}
+                    <article class="team-card reveal">
+                        {% if member.photo %}
+                            <img src="{{ member.photo.url }}" alt="{{ member.name }}">
+                        {% else %}
+                            <div class="team-avatar">{{ member.name|slice:':1' }}</div>
+                        {% endif %}
+                        <h3>{{ member.name }}</h3>
+                        <p class="role">{{ member.position }}</p>
+                        <p>{{ member.bio|truncatechars:110 }}</p>
+                    </article>
+                {% empty %}
+                    <article class="team-card reveal"><div class="team-avatar">A</div><h3>Asadbek Karimov</h3><p class="role">CEO & Co-founder</p></article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="section cta-band">
+        <div class="container cta-shell reveal">
+            <div>
+                <span class="eyebrow">Loyihangizga boshlanish</span>
+                <h2>Loyihangizni muhokama qilamizmi?</h2>
+            </div>
+            <a class="btn btn-primary" href="{% url 'contact:contact' %}">Bog‘lanish</a>
+        </div>
+    </section>
+{% endblock %}

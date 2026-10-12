@@ -1,0 +1,47 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Dashboard | ByteCore{% endblock %}
+{% block page_title %}Umumiy ko‘rinish{% endblock %}
+
+{% block content %}
+    <div class="page-heading">
+        <div><p class="eyebrow">ISH JOYI</p><h1>Salom, {{ request.user.get_short_name|default:request.user.get_username }}</h1><p class="muted">ByteCore saytidagi joriy faoliyat ko‘rsatkichi.</p></div>
+        {% if perms.contact.view_lead %}<a class="button button-primary" href="{% url 'dashboard:leads' %}">Buyurtmalarni ko‘rish</a>{% endif %}
+    </div>
+
+    <section class="stats-grid" aria-label="Statistika">
+        <article class="stat-card"><span class="stat-icon accent">▤</span><div><p>Jami buyurtmalar</p><strong>{% if stats.total_leads is not None %}{{ stats.total_leads }}{% else %}—{% endif %}</strong></div></article>
+        <article class="stat-card"><span class="stat-icon warning">✦</span><div><p>Yangi buyurtmalar</p><strong>{% if stats.new_leads is not None %}{{ stats.new_leads }}{% else %}—{% endif %}</strong></div></article>
+        <article class="stat-card"><span class="stat-icon warning">◷</span><div><p>Ko‘rib chiqilmoqda</p><strong>{% if stats.reviewing_leads is not None %}{{ stats.reviewing_leads }}{% else %}—{% endif %}</strong></div></article>
+        <article class="stat-card"><span class="stat-icon success">▧</span><div><p>Bajarilgan loyihalar</p><strong>{% if stats.completed_projects is not None %}{{ stats.completed_projects }}{% else %}—{% endif %}</strong></div></article>
+        <article class="stat-card"><span class="stat-icon accent">◇</span><div><p>Faol xizmatlar</p><strong>{% if stats.active_services is not None %}{{ stats.active_services }}{% else %}—{% endif %}</strong></div></article>
+        <article class="stat-card"><span class="stat-icon success">♧</span><div><p>Jamoa a’zolari</p><strong>{% if stats.team_members is not None %}{{ stats.team_members }}{% else %}—{% endif %}</strong></div></article>
+    </section>
+
+    <section class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">YANGILIKLAR</p><h2>So‘nggi buyurtmalar</h2></div>{% if perms.contact.view_lead %}<a class="subtle-link" href="{% url 'dashboard:leads' %}">Barchasini ko‘rish →</a>{% endif %}</div>
+        {% if not perms.contact.view_lead %}
+            <div class="empty-state"><span class="empty-icon">▤</span><h3>Buyurtmalar bo‘limiga ruxsat yo‘q</h3><p>Buyurtmalarni ko‘rish uchun administrator sizga tegishli ruxsat berishi kerak.</p></div>
+        {% elif recent_leads %}
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Sana</th><th>Mijoz</th><th>Telefon</th><th>Xizmat turi</th><th>Holat</th><th></th></tr></thead>
+                    <tbody>
+                        {% for lead in recent_leads %}
+                            <tr>
+                                <td>{{ lead.created_at|date:"d.m.Y" }}</td>
+                                <td class="primary-cell">{{ lead.full_name }}</td>
+                                <td>{{ lead.phone|default:"—" }}</td>
+                                <td>{{ lead.get_project_type_display }}</td>
+                                <td><span class="status-badge status-{{ lead.status }}">{{ lead.get_status_display }}</span></td>
+                                <td><a class="table-action" href="{% url 'dashboard:lead_detail' lead.pk %}">Tafsilotlar</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="empty-state"><span class="empty-icon">▤</span><h3>Hozircha buyurtmalar yo‘q</h3><p>Sayt orqali yangi so‘rov kelganda shu yerda ko‘rinadi.</p><a class="button button-secondary" href="{% url 'core:home' %}" target="_blank" rel="noreferrer">Saytni ko‘rish</a></div>
+        {% endif %}
+    </section>
+{% endblock %}

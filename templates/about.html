@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Biz haqimizda | ByteCore{% endblock %}
+
+{% block content %}
+    <section class="page-hero">
+        <div class="container narrow reveal">
+            <span class="eyebrow">Biz haqimizda</span>
+            <h1>Bizning maqsadimiz - biznesingizga kuchli raqamli platforma yaratish.</h1>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container split-layout">
+            <div class="section-copy reveal">
+                <h2>Bizning yondashuv</h2>
+                <p>ByteCore jamoasi biznes ehtiyojlarini tahlil qilib, texnik yechimlar bilan bir vaqtda strategik natijalarni ko‘zlaydi. Har bir mahsulot uchun ishlab chiqarishga tayyor arxitektura, foydalanuvchi ehtiyojlarini inobatga olgan dizayn va barqaror rivojlanish modelini taqdim etamiz.</p>
+            </div>
+            <div class="info-panel reveal">
+                <div class="mini-card"><span>Missiya</span><strong>Raqamli innovatsiyalarni amaliy biznes yechimiga aylantirish</strong></div>
+                <div class="mini-card"><span>Qadriyatlar</span><strong>Sifat, noziklik, xavfsizlik va tezkor ishlash</strong></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-heading reveal">
+                <span class="eyebrow">Jamoa</span>
+                <h2>Mutaxassislar</h2>
+            </div>
+            <div class="team-grid">
+                {% for member in team_members %}
+                    <article class="team-card reveal">
+                        {% if member.photo %}
+                            <img src="{{ member.photo.url }}" alt="{{ member.name }}">
+                        {% else %}
+                            <div class="team-avatar">{{ member.name|slice:':1' }}</div>
+                        {% endif %}
+                        <h3>{{ member.name }}</h3>
+                        <p class="role">{{ member.position }}</p>
+                        <p>{{ member.bio }}</p>
+                    </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

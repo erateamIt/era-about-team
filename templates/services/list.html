@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Xizmatlar | ByteCore{% endblock %}
+
+{% block content %}
+    <section class="page-hero">
+        <div class="container narrow reveal">
+            <span class="eyebrow">Xizmatlar</span>
+            <h1>Biznesingizga mos raqamli yechimlar</h1>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="card-grid services-grid">
+                {% for service in services %}
+                    <article class="card reveal">
+                        <div class="icon-box">{{ service.icon }}</div>
+                        <h3>{{ service.title }}</h3>
+                        <p>{{ service.short_description }}</p>
+                        <a href="{% url 'core:service_detail' slug=service.slug %}">Batafsil</a>
+                    </article>
+                {% empty %}
+                    <article class="card reveal"><h3>Web saytlar va landing page</h3><p>...</p></article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

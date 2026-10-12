@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080B12">
+    <title>{% block title %}Dashboard | ByteCore{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-shell">
+        <aside class="sidebar" id="dashboard-sidebar">
+            <a class="dashboard-brand" href="{% url 'dashboard:home' %}">
+                {% if site_settings.logo %}
+                    <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.company_name }} logo">
+                {% else %}
+                    <span class="brand-mark">B</span>
+                    <span>{{ site_settings.company_name|default:"ByteCore" }}</span>
+                {% endif %}
+            </a>
+            <nav class="sidebar-nav" aria-label="Dashboard menyusi">
+                <span class="nav-label">ISH JOYI</span>
+                <a class="sidebar-link{% if request.resolver_match.url_name == 'home' %} active{% endif %}" href="{% url 'dashboard:home' %}"><span class="nav-icon">⌂</span>Dashboard</a>
+                {% if perms.contact.view_lead %}<a class="sidebar-link{% if request.resolver_match.url_name == 'leads' or request.resolver_match.url_name == 'lead_detail' %} active{% endif %}" href="{% url 'dashboard:leads' %}"><span class="nav-icon">▤</span>Buyurtmalar</a>{% endif %}
+                {% if perms.services.view_service %}<a class="sidebar-link{% if request.resolver_match.url_name == 'services' or request.resolver_match.url_name|slice:':8' == 'service_' %} active{% endif %}" href="{% url 'dashboard:services' %}"><span class="nav-icon">◇</span>Xizmatlar</a>{% endif %}
+                {% if perms.projects.view_project %}<a class="sidebar-link{% if request.resolver_match.url_name == 'projects' or request.resolver_match.url_name|slice:':8' == 'project_' %} active{% endif %}" href="{% url 'dashboard:projects' %}"><span class="nav-icon">▧</span>Portfolio loyihalari</a>{% endif %}
+                {% if perms.team.view_teammember %}<a class="sidebar-link{% if request.resolver_match.url_name == 'team' or request.resolver_match.url_name|slice:':5' == 'team_' %} active{% endif %}" href="{% url 'dashboard:team' %}"><span class="nav-icon">♧</span>Jamoa</a>{% endif %}
+                {% if perms.core.change_sitesettings %}<a class="sidebar-link{% if request.resolver_match.url_name == 'settings' %} active{% endif %}" href="{% url 'dashboard:settings' %}"><span class="nav-icon">⚙</span>Sayt sozlamalari</a>{% endif %}
+            </nav>
+            <div class="sidebar-bottom">
+                <a class="sidebar-link" href="{% url 'core:home' %}" target="_blank" rel="noreferrer"><span class="nav-icon">↗</span>Saytni ko‘rish</a>
+                <form method="post" action="{% url 'dashboard:logout' %}">
+                    {% csrf_token %}
+                    <button class="sidebar-link sidebar-button" type="submit"><span class="nav-icon">⇥</span>Chiqish</button>
+                </form>
+            </div>
+        </aside>
+
+        <div class="dashboard-main">
+            <header class="topbar">
+                <button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="dashboard-sidebar" aria-label="Menyuni ochish">☰</button>
+                <div class="topbar-title">{% block page_title %}Dashboard{% endblock %}</div>
+                <details class="profile-menu">
+                    <summary class="topbar-user">
+                        <span class="user-avatar">{{ request.user.get_username|slice:":1"|upper }}</span>
+                        <span class="user-name">{{ request.user.get_full_name|default:request.user.get_username }}</span>
+                        <span class="profile-chevron" aria-hidden="true">⌄</span>
+                    </summary>
+                    <div class="profile-dropdown">
+                        <strong>{{ request.user.get_full_name|default:request.user.get_username }}</strong>
+                        {% if request.user.email %}<small>{{ request.user.email }}</small>{% endif %}
+                        <form method="post" action="{% url 'dashboard:logout' %}">
+                            {% csrf_token %}
+                            <button class="button button-quiet" type="submit">Chiqish</button>
+                        </form>
+                    </div>
+                </details>
+            </header>
+
+            <main class="dashboard-content">
+                {% if messages %}
+                    <div class="message-stack" aria-live="polite">
+                        {% for message in messages %}<div class="message message-{{ message.tags }}">{{ message }}</div>{% endfor %}
+                    </div>
+                {% endif %}
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+    <div class="sidebar-overlay" data-sidebar-close></div>
+    <script src="{% static 'js/dashboard.js' %}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

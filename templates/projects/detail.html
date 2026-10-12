@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ project.meta_title|default:project.title }} | ByteCore{% endblock %}
+{% block meta_description %}{{ project.meta_description|default:project.summary }}{% endblock %}
+{% block og_title %}{{ project.meta_title|default:project.title }} | ByteCore{% endblock %}
+{% block og_description %}{{ project.meta_description|default:project.summary }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_image %}{% if og_image %}<meta property="og:image" content="{{ og_image }}">{% endif %}{% endblock %}
+
+{% block content %}
+    <section class="page-hero">
+        <div class="container narrow reveal">
+            <span class="eyebrow">Loyiha</span>
+            <h1>{{ project.title }}</h1>
+            <p>{{ project.summary }}</p>
+            {% if cover_image %}
+                <img class="project-cover-image" src="{{ cover_image.url }}" alt="{% if cover_gallery_image.alt_text %}{{ cover_gallery_image.alt_text }}{% else %}{{ project.title }} loyihasi{% endif %}">
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container split-layout">
+            <div class="section-copy reveal">
+                <div class="rich-text">
+                    {{ project.description|linebreaksbr }}
+                </div>
+                {% if project.technologies %}
+                    <div class="tags project-detail-tags">
+                        {% for tech in project.technologies %}
+                            <span>{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="info-panel reveal">
+                {% if project.project_url %}
+                    <div class="mini-card"><span>Proyekt URL</span><strong><a href="{{ project.project_url }}" target="_blank" rel="noreferrer">{{ project.project_url }}</a></strong></div>
+                {% endif %}
+                {% if other_projects %}
+                    <div class="mini-card">
+                        <span>Boshqa loyihalar</span>
+                        <ul class="related-links">
+                            {% for item in other_projects %}
+                                <li><a href="{% url 'core:project_detail' slug=item.slug %}">{{ item.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    {% if gallery_images %}
+        <section class="section project-gallery-section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Galereya</span>
+                    <h2>Loyiha tasvirlari</h2>
+                </div>
+                <div class="project-gallery">
+                    {% for image in gallery_images %}
+                        <figure>
+                            <img src="{{ image.image.url }}" alt="{{ image.alt_text|default:project.title }}" loading="lazy">
+                            {% if image.alt_text %}<figcaption>{{ image.alt_text }}</figcaption>{% endif %}
+                        </figure>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

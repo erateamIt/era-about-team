@@ -1,0 +1,33 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Buyurtma #{{ lead.pk }} | ByteCore Dashboard{% endblock %}
+{% block page_title %}Buyurtma tafsilotlari{% endblock %}
+
+{% block content %}
+    <div class="page-heading"><div><p class="eyebrow">BUYURTMA #{{ lead.pk }}</p><h1>{{ lead.full_name }}</h1><p class="muted">Yuborilgan sana: {{ lead.created_at|date:"d.m.Y, H:i" }}</p></div><a class="button button-secondary" href="{% url 'dashboard:leads' %}">← Buyurtmalar</a></div>
+    <div class="detail-grid">
+        <section class="panel detail-panel">
+            <div class="panel-heading"><div><p class="eyebrow">MIJOZ MA’LUMOTLARI</p><h2>Murojaat</h2></div><span class="status-badge status-{{ lead.status }}">{{ lead.get_status_display }}</span></div>
+            <dl class="detail-list">
+                <div><dt>Ism</dt><dd>{{ lead.full_name }}</dd></div>
+                <div><dt>Kompaniya</dt><dd>{{ lead.company|default:"—" }}</dd></div>
+                <div><dt>Email</dt><dd><a href="mailto:{{ lead.email }}">{{ lead.email }}</a></dd></div>
+                <div><dt>Telefon</dt><dd>{% if lead.phone %}<a href="tel:{{ lead.phone }}">{{ lead.phone }}</a>{% else %}—{% endif %}</dd></div>
+                <div><dt>Xizmat turi</dt><dd>{{ lead.get_project_type_display }}</dd></div>
+                <div class="detail-message"><dt>Xabar</dt><dd>{{ lead.message|linebreaksbr }}</dd></div>
+            </dl>
+        </section>
+        {% if perms.contact.change_lead %}
+            <section class="panel">
+                <div class="panel-heading"><div><p class="eyebrow">ISH JARAYONI</p><h2>Holatni yangilash</h2></div></div>
+                <form method="post" class="dashboard-form">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-field"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% if field.help_text %}<small>{{ field.help_text }}</small>{% endif %}{{ field.errors }}</div>
+                    {% endfor %}
+                    <button class="button button-primary" type="submit">O‘zgarishlarni saqlash</button>
+                </form>
+            </section>
+        {% endif %}
+    </div>
+{% endblock %}

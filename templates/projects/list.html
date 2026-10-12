@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Loyihalar | ByteCore{% endblock %}
+
+{% block content %}
+    <section class="page-hero">
+        <div class="container narrow reveal">
+            <span class="eyebrow">Portfolio</span>
+            <h1>Biz qo‘lga kiritgan natijalar</h1>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="card-grid portfolio-grid">
+                {% for project in projects %}
+                    <article class="project-card reveal">
+                        {% if project.cover_image %}
+                            <img src="{{ project.cover_image.url }}" alt="{{ project.title }}">
+                        {% else %}
+                            <div class="project-placeholder">{{ project.title }}</div>
+                        {% endif %}
+                        <div class="project-body">
+                            <h3>{{ project.title }}</h3>
+                            <p>{{ project.summary }}</p>
+                            <div class="tags">
+                                {% for tech in project.technologies %}
+                                    <span>{{ tech }}</span>
+                                {% endfor %}
+                            </div>
+                            <a href="{% url 'core:project_detail' slug=project.slug %}">Batafsil</a>
+                        </div>
+                    </article>
+                {% empty %}
+                    <article class="project-card reveal"><div class="project-placeholder">NovaTrade</div><div class="project-body"><h3>NovaTrade</h3><p>B2B savdo platformasi</p></div></article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Jamoa | ByteCore Dashboard{% endblock %}
+{% block page_title %}Jamoa{% endblock %}
+
+{% block content %}
+    <div class="page-heading"><div><p class="eyebrow">JAMOA</p><h1>Jamoa a’zolari</h1><p class="muted">Jamoa profillari va ko‘rinish tartibini boshqaring.</p></div>{% if perms.team.add_teammember %}<a class="button button-primary" href="{% url 'dashboard:team_create' %}">＋ A’zo qo‘shish</a>{% endif %}</div>
+    <section class="panel">
+        <form method="get" class="filter-bar compact-filter"><div class="filter-field search-field"><label for="team-search">Qidiruv</label><input class="form-control" id="team-search" name="q" value="{{ request.GET.q }}" placeholder="Ism yoki lavozim"></div><div class="filter-field"><label for="team-active">Holat</label><select class="form-control" id="team-active" name="active"><option value="">Barchasi</option><option value="true"{% if request.GET.active == "true" %} selected{% endif %}>Faol</option><option value="false"{% if request.GET.active == "false" %} selected{% endif %}>Nofaol</option></select></div><button class="button button-primary" type="submit">Qidirish</button></form>
+        {% if page_obj.object_list %}
+            <div class="table-wrap"><table><thead><tr><th>A’zo</th><th>Lavozim</th><th>Tartib</th><th>Holat</th><th>Amallar</th></tr></thead><tbody>
+                {% for member in page_obj %}
+                    <tr><td class="primary-cell">{{ member.name }}</td><td>{{ member.position }}</td><td>{{ member.order }}</td><td><span class="status-badge{% if member.is_active %} status-completed{% else %} status-rejected{% endif %}">{% if member.is_active %}Faol{% else %}Nofaol{% endif %}</span></td><td class="actions-cell">
+                        {% if perms.team.change_teammember %}<a class="table-action" href="{% url 'dashboard:team_edit' member.pk %}">Tahrirlash</a><form method="post" action="{% url 'dashboard:team_toggle' member.pk %}">{% csrf_token %}<button class="text-button" type="submit">{% if member.is_active %}O‘chirish{% else %}Faollashtirish{% endif %}</button></form>{% endif %}
+                        {% if perms.team.delete_teammember %}<a class="table-action danger-link" href="{% url 'dashboard:team_delete' member.pk %}">O‘chirish</a>{% endif %}
+                    </td></tr>
+                {% endfor %}
+            </tbody></table></div>
+            {% include "dashboard/includes/pagination.html" %}
+        {% else %}
+            <div class="empty-state"><span class="empty-icon">♧</span><h3>Hozircha jamoa a’zolari yo‘q</h3><p>Jamoa profilini qo‘shib, saytda ko‘rsating.</p></div>
+        {% endif %}
+    </section>
+{% endblock %}

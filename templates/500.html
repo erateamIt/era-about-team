@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}500 | ByteCore{% endblock %}
+
+{% block content %}
+    <section class="section page-error">
+        <div class="container narrow reveal text-center">
+            <span class="eyebrow">500</span>
+            <h1>Serverda nosozlik yuz berdi</h1>
+            <p>Texnik nosozlik tufayli sahifa vaqtincha mavjud emas. Iltimos, bir ozdan keyin qayta urinib ko‘ring.</p>
+            <a class="btn btn-primary" href="{% url 'core:home' %}">Bosh sahifaga qaytish</a>
+        </div>
+    </section>
+{% endblock %}

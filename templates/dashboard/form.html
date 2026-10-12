@@ -1,0 +1,30 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}{{ title }} | ByteCore Dashboard{% endblock %}
+{% block page_title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="page-heading"><div><p class="eyebrow">MA’LUMOTLAR</p><h1>{{ title }}</h1></div><a class="button button-secondary" href="{% url cancel_url %}">← Ortga</a></div>
+    <section class="panel form-panel">
+        <form method="post" enctype="multipart/form-data" class="dashboard-form">
+            {% csrf_token %}
+            {% if form.non_field_errors %}<div class="form-errors">{{ form.non_field_errors }}</div>{% endif %}
+            <div class="form-grid">
+                {% for field in form %}
+                    <div class="form-field{% if field.field.widget.input_type == 'checkbox' %} checkbox-field{% endif %}{% if field.name == 'description' or field.name == 'bio' or field.name == 'meta_description' or field.name == 'technologies_text' or field.name == 'footer_text' %} field-wide{% endif %}">
+                        {% if field.field.widget.input_type == "checkbox" %}
+                            <label class="checkbox-label">{{ field }}<span>{{ field.label }}</span></label>
+                        {% else %}
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                        {% endif %}
+                        {% if field.help_text %}<small>{{ field.help_text }}</small>{% endif %}
+                        {% if field.errors %}<div class="field-errors">{{ field.errors }}</div>{% endif %}
+                        {% if field.field.widget.input_type == "file" and field.value %}<small>Joriy fayl: {{ field.value }}</small>{% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="form-actions"><button class="button button-primary" type="submit">Saqlash</button><a class="button button-quiet" href="{% url cancel_url %}">Bekor qilish</a></div>
+        </form>
+    </section>
+{% endblock %}
