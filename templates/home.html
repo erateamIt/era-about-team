@@ -25,19 +25,14 @@
             <div class="hero-visual reveal">
                 <div class="orb orb-one"></div>
                 <div class="orb orb-two"></div>
-                <div class="dashboard-card">
-                    <div class="dashboard-head">
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
-                    <div class="chart-bars">
-                        <span style="height: 40%"></span>
-                        <span style="height: 65%"></span>
-                        <span style="height: 53%"></span>
-                        <span style="height: 85%"></span>
-                        <span style="height: 72%"></span>
-                        <span style="height: 96%"></span>
+                <div class="hero-3d-logo" aria-label="ByteCore logo">
+                    <div class="hero-logo-wrap">
+                        <img
+                            class="hero-logo-image"
+                            src="{% static 'images/bytecore-logo-transparent.png' %}"
+                            alt="{{ site_settings.company_name|default:'ByteCore' }} logo"
+                        >
+                        <div class="hero-logo-pedestal" aria-hidden="true"></div>
                     </div>
                 </div>
             </div>
