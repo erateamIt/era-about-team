@@ -1,0 +1,377 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: uz\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "About"
+msgstr "Biz haqimizda"
+
+msgid "About the project"
+msgstr "Loyiha haqida"
+
+msgid "A clear and transparent workflow"
+msgstr "Aniq va shaffof ish jarayoni"
+
+msgid "A clear start"
+msgstr "Aniq boshlanish"
+
+msgid "A closer look at products we have designed, built and launched with our partners."
+msgstr "Hamkorlarimiz bilan birga loyihalagan, yaratgan va ishga tushirgan mahsulotlarimiz bilan tanishing."
+
+msgid "A considered strategy and a solution tailored to your goals."
+msgstr "Puxta strategiya va maqsadlaringizga mos yechim."
+
+msgid "Address"
+msgstr "Manzil"
+
+msgid "A focused team combining engineering, design and business thinking."
+msgstr "Muhandislik, dizayn va biznes yondashuvini birlashtirgan jamoa."
+
+msgid "AI integration"
+msgstr "Sun’iy intellekt integratsiyasi"
+
+msgid "All rights reserved."
+msgstr "Barcha huquqlar himoyalangan."
+
+msgid "API / backend"
+msgstr "API / backend"
+
+msgid "Automation"
+msgstr "Avtomatlashtirish"
+
+msgid "Back to home"
+msgstr "Bosh sahifaga qaytish"
+
+msgid "B2B commerce platform"
+msgstr "B2B savdo platformasi"
+
+msgid "Build"
+msgstr "Ishlab chiqish"
+
+msgid "ByteCore turns ideas into modern websites, automation and software that help teams work faster and grow with confidence."
+msgstr "ByteCore g‘oyalarni jamoalarga tezroq ishlash va ishonch bilan o‘sishga yordam beradigan zamonaviy saytlar, avtomatlashtirish va dasturiy mahsulotlarga aylantiradi."
+
+msgid "ByteCore — IT services and digital products for ambitious businesses."
+msgstr "ByteCore — ambitsiyali bizneslar uchun IT xizmatlari va raqamli mahsulotlar."
+
+msgid "ByteCore | IT services and digital products"
+msgstr "ByteCore | IT xizmatlari va raqamli mahsulotlar"
+
+msgid "Clarity, reliability, open collaboration and quality."
+msgstr "Aniqlik, ishonchlilik, ochiq hamkorlik va sifat."
+
+msgid "Company"
+msgstr "Kompaniya"
+
+msgid "Company name"
+msgstr "Kompaniya nomi"
+
+msgid "Completed"
+msgstr "Yakunlandi"
+
+msgid "Contact"
+msgstr "Aloqa"
+
+msgid "Contact us"
+msgstr "Biz bilan bog‘laning"
+
+msgid "CRM / automation"
+msgstr "CRM / avtomatlashtirish"
+
+msgid "Delivered projects"
+msgstr "Bajarilgan loyihalar"
+
+msgid "Design and prototype"
+msgstr "Dizayn va prototiplash"
+
+msgid "Digital solutions for your business"
+msgstr "Biznesingiz uchun raqamli yechimlar"
+
+msgid "Discover requirements"
+msgstr "Talablarni o‘rganish"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Engineering"
+msgstr "Muhandislik"
+
+msgid "Faster customer communication and automated operations."
+msgstr "Mijozlar bilan tezkor aloqa va avtomatlashtirilgan jarayonlar."
+
+msgid "From first launch to long-term product growth, we design and ship the systems your team actually uses."
+msgstr "Ilk ishga tushirishdan mahsulotning uzoq muddatli rivojigacha jamoangizga amalda naf beradigan tizimlarni loyihalaymiz va ishga tushiramiz."
+
+msgid "Full name"
+msgstr "Ism-familiya"
+
+msgid "Gallery"
+msgstr "Galereya"
+
+msgid "Get in touch"
+msgstr "Bog‘lanish"
+
+msgid "Home"
+msgstr "Bosh sahifa"
+
+msgid "In negotiation"
+msgstr "Muzokarada"
+
+msgid "In progress"
+msgstr "Bajarilmoqda"
+
+msgid "Language"
+msgstr "Til"
+
+msgid "Launch and support"
+msgstr "Ishga tushirish va qo‘llab-quvvatlash"
+
+msgid "Learn more"
+msgstr "Batafsil"
+
+msgid "Let’s build something great together."
+msgstr "Keling, birgalikda ajoyib loyiha yaratamiz."
+
+msgid "Main navigation"
+msgstr "Asosiy navigatsiya"
+
+msgid "Meet the people behind the work."
+msgstr "Loyihalar ortidagi jamoa bilan tanishing."
+
+msgid "Meet the team"
+msgstr "Jamoa bilan tanishing"
+
+msgid "Mission"
+msgstr "Missiya"
+
+msgid "Modern digital experiences aligned with business goals."
+msgstr "Biznes maqsadlariga mos zamonaviy raqamli tajribalar."
+
+msgid "More projects"
+msgstr "Boshqa loyihalar"
+
+msgid "New"
+msgstr "Yangi"
+
+msgid "Next step"
+msgstr "Keyingi qadam"
+
+msgid "Ongoing support and updates"
+msgstr "Doimiy yordam va yangilanishlar"
+
+msgid "Online store"
+msgstr "Onlayn do‘kon"
+
+msgid "Our approach"
+msgstr "Bizning yondashuv"
+
+msgid "Our goal is to give your business a strong digital platform."
+msgstr "Maqsadimiz — biznesingiz uchun kuchli raqamli platforma yaratish."
+
+msgid "Our team profiles will be available soon."
+msgstr "Jamoa a’zolari haqidagi ma’lumotlar tez orada joylanadi."
+
+msgid "Other"
+msgstr "Boshqa"
+
+msgid "Page not found"
+msgstr "Sahifa topilmadi"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Plan"
+msgstr "Rejalashtirish"
+
+msgid "Portfolio"
+msgstr "Portfolio"
+
+msgid "Privacy"
+msgstr "Maxfiylik"
+
+msgid "Privacy policy"
+msgstr "Maxfiylik siyosati"
+
+msgid "Process"
+msgstr "Jarayon"
+
+msgid "Product design"
+msgstr "Mahsulot dizayni"
+
+msgid "Product-oriented architecture"
+msgstr "Mahsulotga yo‘naltirilgan arxitektura"
+
+msgid "Professional and efficient delivery"
+msgstr "Professional va samarali ishlab chiqish"
+
+msgid "Project"
+msgstr "Loyiha"
+
+msgid "Project images"
+msgstr "Loyiha rasmlari"
+
+msgid "Project inquiry"
+msgstr "Loyiha bo‘yicha murojaat"
+
+msgid "Project type"
+msgstr "Loyiha turi"
+
+msgid "Project URL"
+msgstr "Loyiha havolasi"
+
+msgid "Projects"
+msgstr "Loyihalar"
+
+msgid "Quality, precision, security and fast execution"
+msgstr "Sifat, puxtalik, xavfsizlik va tezkorlik"
+
+msgid "Quick links"
+msgstr "Tezkor havolalar"
+
+msgid "Rejected"
+msgstr "Rad etildi"
+
+msgid "Related services"
+msgstr "Bog‘liq xizmatlar"
+
+msgid "Reliable delivery"
+msgstr "Ishonchli natija"
+
+msgid "Responsive digital experiences designed to turn visitors into customers."
+msgstr "Tashrif buyuruvchilarni mijozlarga aylantirish uchun yaratilgan moslashuvchan raqamli tajribalar."
+
+msgid "A selection of products and platforms built with our clients."
+msgstr "Mijozlarimiz bilan birga yaratgan mahsulot va platformalarimizdan namunalar."
+
+msgid "Selected projects"
+msgstr "Tanlangan loyihalar"
+
+msgid "Send request"
+msgstr "So‘rov yuborish"
+
+msgid "Service"
+msgstr "Xizmat"
+
+msgid "Services"
+msgstr "Xizmatlar"
+
+msgid "Shall we discuss your project?"
+msgstr "Loyihangizni muhokama qilamizmi?"
+
+msgid "Solutions built around your business"
+msgstr "Biznesingizga mos yechimlar"
+
+msgid "Something went wrong"
+msgstr "Xatolik yuz berdi"
+
+msgid "Specialists"
+msgstr "Mutaxassislar"
+
+msgid "Start a project"
+msgstr "Loyihani boshlash"
+
+msgid "Support"
+msgstr "Qo‘llab-quvvatlash"
+
+msgid "Team"
+msgstr "Jamoa"
+
+msgid "Technical and business specialists"
+msgstr "Texnik va biznes mutaxassislari"
+
+msgid "Telegram bot"
+msgstr "Telegram bot"
+
+msgid "Telegram bots"
+msgstr "Telegram botlar"
+
+msgid "Tell us about your goals. Our team will get back to you to discuss the next steps."
+msgstr "Maqsadlaringiz haqida yozing. Keyingi qadamlarni muhokama qilish uchun jamoamiz siz bilan bog‘lanadi."
+
+msgid "Tell us briefly about your project..."
+msgstr "Loyihangiz haqida qisqacha yozing..."
+
+msgid "Test"
+msgstr "Sinov"
+
+msgid "The ByteCore team studies business needs and looks for technical solutions that also deliver strategic results. For every product we provide production-ready architecture, design grounded in user needs, and a model for sustainable growth."
+msgstr "ByteCore jamoasi biznes ehtiyojlarini o‘rganib, strategik natija beradigan texnik yechimlarni ishlab chiqadi. Har bir mahsulot uchun ishga tayyor arxitektura, foydalanuvchi ehtiyojlariga asoslangan dizayn va barqaror o‘sish modelini taklif qilamiz."
+
+msgid "The page may have moved or may no longer be available."
+msgstr "Sahifa ko‘chirilgan yoki endi mavjud bo‘lmasligi mumkin."
+
+msgid "The phone number must start with +998 and contain 9 digits."
+msgstr "Telefon raqami +998 bilan boshlanib, 9 ta raqamdan iborat bo‘lishi kerak."
+
+msgid "This page is temporarily unavailable. Please try again in a little while."
+msgstr "Sahifa vaqtincha ishlamayapti. Birozdan so‘ng qayta urinib ko‘ring."
+
+msgid "Too many requests. Please try again in 5 minutes."
+msgstr "So‘rovlar soni oshib ketdi. 5 daqiqadan so‘ng qayta urinib ko‘ring."
+
+msgid "Translation pending"
+msgstr "Tarjima kutilmoqda"
+
+msgid "Turning digital innovation into practical business solutions"
+msgstr "Raqamli innovatsiyalarni amaliy biznes yechimlariga aylantirish"
+
+msgid "Under review"
+msgstr "Ko‘rib chiqilmoqda"
+
+msgid "UI/UX design"
+msgstr "UI/UX dizayn"
+
+msgid "Values"
+msgstr "Qadriyatlar"
+
+msgid "Website"
+msgstr "Web sayt"
+
+msgid "View our work"
+msgstr "Loyihalarimizni ko‘rish"
+
+msgid "View project"
+msgstr "Loyihani ko‘rish"
+
+msgid "We bring code, design, automation and customer experience together. Every project gets a strategic approach and production-ready architecture."
+msgstr "Kod, dizayn, avtomatlashtirish va mijoz tajribasini birlashtiramiz. Har bir loyihaga strategik yondashuv va ishlab chiqarishga tayyor arxitektura taqdim etamiz."
+
+msgid "We build digital products for ambitious businesses."
+msgstr "Biz ambitsiyali bizneslar uchun raqamli mahsulotlar yaratamiz."
+
+msgid "We build digital transformation on a stable foundation."
+msgstr "Raqamli transformatsiyani mustahkam asosda quramiz."
+
+msgid "We create practical, secure digital products that businesses can grow with."
+msgstr "Bizneslar bilan birga rivojlanadigan amaliy va xavfsiz raqamli mahsulotlar yaratamiz."
+
+msgid "We share personal information only with your consent or when required by law."
+msgstr "Shaxsiy ma’lumotlarni faqat roziligingiz bilan yoki qonun talab qilganda ulashamiz."
+
+msgid "We take reasonable measures to protect personal information. It is used only to discuss your project and deliver our services."
+msgstr "Shaxsiy ma’lumotlarni himoya qilish uchun zarur choralarni ko‘ramiz. Ular faqat loyihangizni muhokama qilish va xizmatlarimizni ko‘rsatish uchun ishlatiladi."
+
+msgid "We use personal information submitted through this website to respond to inquiries and manage projects. Information is processed only for legitimate business purposes and in accordance with applicable law."
+msgstr "Sayt orqali yuborilgan shaxsiy ma’lumotlardan murojaatlarga javob berish va loyihalarni boshqarish uchun foydalanamiz. Ma’lumotlar faqat qonuniy biznes maqsadlarida va amaldagi qonunchilikka muvofiq qayta ishlanadi."
+
+msgid "Websites"
+msgstr "Veb-saytlar"
+
+msgid "Websites and landing pages"
+msgstr "Veb-saytlar va landing sahifalar"
+
+msgid "Websites, e-commerce, messaging and automation shaped around the way you work."
+msgstr "Ish uslubingizga mos veb-saytlar, onlayn savdo, messenjer yechimlari va avtomatlashtirish."
+
+msgid "Work that delivers results"
+msgstr "Natija beradigan loyihalar"
+
+msgid "Years of experience"
+msgstr "Yillik tajriba"
+
+msgid "Your name"
+msgstr "Ismingiz"
+
+msgid "Your request has been received. We will contact you shortly."
+msgstr "Murojaatingiz qabul qilindi. Tez orada siz bilan bog‘lanamiz."

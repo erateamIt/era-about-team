@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
+{% load i18n i18n_extras %}
 
-{% block title %}{{ service.meta_title|default:service.title }} | ByteCore{% endblock %}
-{% block meta_description %}{{ service.meta_description|default:service.short_description }}{% endblock %}
-{% block og_title %}{{ service.meta_title|default:service.title }} | ByteCore{% endblock %}
-{% block og_description %}{{ service.meta_description|default:service.short_description }}{% endblock %}
+{% block title %}{{ service|localized_default:'meta_title,title' }} | ByteCore{% endblock %}
+{% block meta_description %}{{ service|localized_default:'meta_description,short_description' }}{% endblock %}
+{% block og_title %}{{ service|localized_default:'meta_title,title' }} | ByteCore{% endblock %}
+{% block og_description %}{{ service|localized_default:'meta_description,short_description' }}{% endblock %}
 {% block og_image %}{% if og_image %}<meta property="og:image" content="{{ og_image }}">{% endif %}{% endblock %}
 
 {% block content %}
     <section class="page-hero">
         <div class="container narrow reveal">
-            <span class="eyebrow">Xizmat</span>
-            <h1>{{ service.title }}</h1>
-            <p>{{ service.short_description }}</p>
+            <span class="eyebrow">{% trans "Service" %}</span>
+            <h1>{{ service|localized:'title' }}</h1>
+            <p>{{ service|localized:'short_description' }}</p>
         </div>
     </section>
 
@@ -19,17 +20,17 @@
         <div class="container split-layout">
             <div class="section-copy reveal">
                 <div class="rich-text">
-                    {{ service.description|linebreaksbr }}
+                    {{ service|localized:'description'|linebreaksbr }}
                 </div>
             </div>
             <div class="info-panel reveal">
-                <div class="mini-card"><span>Tezkor boshlash</span><strong>Strategik yondashuv va maqsadga mos yechim.</strong></div>
+                <div class="mini-card"><span>{% trans "A clear start" %}</span><strong>{% trans "A considered strategy and a solution tailored to your goals." %}</strong></div>
                 {% if related_services %}
                     <div class="mini-card">
-                        <span>Boshqa xizmatlar</span>
+                        <span>{% trans "Related services" %}</span>
                         <ul class="related-links">
                             {% for item in related_services %}
-                                <li><a href="{% url 'core:service_detail' slug=item.slug %}">{{ item.title }}</a></li>
+                                <li><a href="{% url 'core:service_detail' slug=item.slug %}">{{ item|localized:'title' }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>

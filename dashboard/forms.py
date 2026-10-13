@@ -1,12 +1,16 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.forms import BaseInlineFormSet, inlineformset_factory
 from django.utils.text import slugify
 
 from contact.models import Lead
-from core.models import SiteSettings
-from projects.models import Project
-from services.models import Service
-from team.models import TeamMember
+from core.i18n import LANGUAGE_LABELS
+from core.models import SiteSettings, SiteSettingsTranslation
+from projects.models import Project, ProjectTranslation
+from services.models import Service, ServiceTranslation
+from team.models import TeamMember, TeamMemberTranslation
+
+TRANSLATION_LANGUAGES = ("ru", "tr", "en")
 
 
 class DashboardModelForm(forms.ModelForm):
@@ -216,3 +220,142 @@ class LeadStatusForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["status"].widget.attrs["class"] = "form-control"
+
+
+class TranslationModelForm(DashboardModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["language"].widget = forms.HiddenInput()
+        language = self.initial.get("language") or getattr(self.instance, "language", "")
+        self.language_code = language
+        self.language_label = LANGUAGE_LABELS.get(language, language)
+
+
+class BaseTranslationFormSet(BaseInlineFormSet):
+    def __init__(self, *args, **kwargs):
+        if "queryset" not in kwargs:
+            instance = kwargs.get("instance")
+            if instance and getattr(instance, "pk", None):
+                kwargs["queryset"] = instance.translations.exclude(language="uz")
+            else:
+                kwargs["queryset"] = self.model.objects.none()
+        super().__init__(*args, **kwargs)
+
+    def get_form_kwargs(self, index):
+        kwargs = super().get_form_kwargs(index)
+        if index is not None and index >= self.initial_form_count():
+            existing = set(self.get_queryset().values_list("language", flat=True))
+            remaining = [code for code in TRANSLATION_LANGUAGES if code not in existing]
+            extra_index = index - self.initial_form_count()
+            if extra_index < len(remaining):
+                initial = kwargs.get("initial", {}).copy()
+                initial["language"] = remaining[extra_index]
+                kwargs["initial"] = initial
+        return kwargs
+
+    def save(self, commit=True):
+        instances = super().save(commit=False)
+        saved = []
+        for obj in instances:
+            if commit:
+                obj.save()
+            saved.append(obj)
+        if commit:
+            self.save_m2m()
+        return saved
+
+
+class ServiceTranslationForm(TranslationModelForm):
+    class Meta:
+        model = ServiceTranslation
+        fields = ["language", "title", "short_description", "description", "meta_title", "meta_description"]
+        labels = {
+            "title": "Nomi",
+            "short_description": "Qisqa tavsif",
+            "description": "To‘liq tavsif",
+            "meta_title": "SEO sarlavhasi",
+            "meta_description": "SEO tavsifi",
+        }
+        widgets = {"description": forms.Textarea(attrs={"rows": 5}), "meta_description": forms.Textarea(attrs={"rows": 3})}
+
+
+class ProjectTranslationForm(TranslationModelForm):
+    class Meta:
+        model = ProjectTranslation
+        fields = ["language", "title", "summary", "description", "meta_title", "meta_description"]
+        labels = {
+            "title": "Nomi",
+            "summary": "Qisqa tavsif",
+            "description": "To‘liq tavsif",
+            "meta_title": "SEO sarlavhasi",
+            "meta_description": "SEO tavsifi",
+        }
+        widgets = {"description": forms.Textarea(attrs={"rows": 5}), "meta_description": forms.Textarea(attrs={"rows": 3})}
+
+
+class TeamMemberTranslationForm(TranslationModelForm):
+    class Meta:
+        model = TeamMemberTranslation
+        fields = ["language", "position", "bio"]
+        labels = {"position": "Lavozim", "bio": "Qisqacha ma’lumot"}
+        widgets = {"bio": forms.Textarea(attrs={"rows": 4})}
+
+
+class SiteSettingsTranslationForm(TranslationModelForm):
+    class Meta:
+        model = SiteSettingsTranslation
+        fields = ["language", "tagline", "footer_text", "address", "meta_title", "meta_description"]
+        labels = {
+            "tagline": "Qisqa ta’rif",
+            "footer_text": "Footer matni",
+            "address": "Manzil",
+            "meta_title": "SEO sarlavhasi",
+            "meta_description": "SEO tavsifi",
+        }
+        widgets = {"meta_description": forms.Textarea(attrs={"rows": 3})}
+
+
+ServiceTranslationFormSet = inlineformset_factory(
+    Service,
+    ServiceTranslation,
+    form=ServiceTranslationForm,
+    formset=BaseTranslationFormSet,
+    extra=3,
+    max_num=3,
+    can_delete=False,
+)
+ProjectTranslationFormSet = inlineformset_factory(
+    Project,
+    ProjectTranslation,
+    form=ProjectTranslationForm,
+    formset=BaseTranslationFormSet,
+    extra=3,
+    max_num=3,
+    can_delete=False,
+)
+TeamMemberTranslationFormSet = inlineformset_factory(
+    TeamMember,
+    TeamMemberTranslation,
+    form=TeamMemberTranslationForm,
+    formset=BaseTranslationFormSet,
+    extra=3,
+    max_num=3,
+    can_delete=False,
+)
+SiteSettingsTranslationFormSet = inlineformset_factory(
+    SiteSettings,
+    SiteSettingsTranslation,
+    form=SiteSettingsTranslationForm,
+    formset=BaseTranslationFormSet,
+    extra=3,
+    max_num=3,
+    can_delete=False,
+    fk_name="settings",
+)
+
+TRANSLATION_FORMSETS = {
+    ServiceForm: ServiceTranslationFormSet,
+    ProjectForm: ProjectTranslationFormSet,
+    TeamMemberForm: TeamMemberTranslationFormSet,
+    SiteSettingsForm: SiteSettingsTranslationFormSet,
+}

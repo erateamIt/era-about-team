@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}500 | ByteCore{% endblock %}
 
@@ -6,9 +7,9 @@
     <section class="section page-error">
         <div class="container narrow reveal text-center">
             <span class="eyebrow">500</span>
-            <h1>Serverda nosozlik yuz berdi</h1>
-            <p>Texnik nosozlik tufayli sahifa vaqtincha mavjud emas. Iltimos, bir ozdan keyin qayta urinib ko‘ring.</p>
-            <a class="btn btn-primary" href="{% url 'core:home' %}">Bosh sahifaga qaytish</a>
+            <h1>{% trans "Something went wrong" %}</h1>
+            <p>{% trans "This page is temporarily unavailable. Please try again in a little while." %}</p>
+            <a class="btn btn-primary" href="{% url 'core:home' %}">{% trans "Back to home" %}</a>
         </div>
     </section>
 {% endblock %}

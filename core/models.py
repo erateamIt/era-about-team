@@ -1,11 +1,15 @@
 from django.db import models
 
+from .i18n import TranslatableMixin, TranslationBase
 from .validators import validate_image_file
 
 
-class SiteSettings(models.Model):
+class SiteSettings(TranslatableMixin, models.Model):
+    translation_fields = ("tagline", "footer_text", "address", "meta_title", "meta_description")
+    translation_fallback_fields = ("tagline",)
+    translation_required_fields = ("tagline", "footer_text")
     company_name = models.CharField(max_length=150, default="ByteCore")
-    tagline = models.CharField(max_length=220, default="IT solutions for ambitious businesses")
+    tagline = models.CharField(max_length=220, default="Ambitsiyali bizneslar uchun raqamli yechimlar")
     footer_text = models.CharField(max_length=255, blank=True, default="Raqamli kelajagingiz uchun ishonchli hamkor.")
     phone = models.CharField(max_length=32, default="+998 90 000 00 00")
     email = models.EmailField(default="hello@bytecore.uz")
@@ -43,5 +47,25 @@ class SiteSettings(models.Model):
 
     @classmethod
     def get_instance(cls):
-        obj, _ = cls.objects.get_or_create(pk=1)
-        return obj
+        try:
+            return cls.objects.prefetch_related("translations").get(pk=1)
+        except cls.DoesNotExist:
+            obj, _ = cls.objects.get_or_create(pk=1)
+            return obj
+
+
+class SiteSettingsTranslation(TranslationBase):
+    settings = models.ForeignKey(SiteSettings, related_name="translations", on_delete=models.CASCADE)
+    tagline = models.CharField(max_length=220, blank=True)
+    footer_text = models.CharField(max_length=255, blank=True)
+    address = models.CharField(max_length=200, blank=True)
+    meta_title = models.CharField(max_length=160, blank=True)
+    meta_description = models.TextField(blank=True)
+
+    class Meta:
+        unique_together = ("settings", "language")
+        verbose_name = "site settings translation"
+        verbose_name_plural = "site settings translations"
+
+    def __str__(self):
+        return f"{self.settings.company_name} [{self.language}]"

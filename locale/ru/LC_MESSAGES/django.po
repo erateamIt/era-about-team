@@ -1,0 +1,377 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "About"
+msgstr "О компании"
+
+msgid "About the project"
+msgstr "О проекте"
+
+msgid "A clear and transparent workflow"
+msgstr "Понятный и прозрачный процесс работы"
+
+msgid "A clear start"
+msgstr "Уверенный старт"
+
+msgid "A closer look at products we have designed, built and launched with our partners."
+msgstr "Знакомьтесь с продуктами, которые мы спроектировали, разработали и запустили вместе с партнёрами."
+
+msgid "A considered strategy and a solution tailored to your goals."
+msgstr "Продуманная стратегия и решение, созданное под ваши цели."
+
+msgid "Address"
+msgstr "Адрес"
+
+msgid "A focused team combining engineering, design and business thinking."
+msgstr "Команда, объединяющая инженерную экспертизу, дизайн и бизнес-мышление."
+
+msgid "AI integration"
+msgstr "Интеграция ИИ"
+
+msgid "All rights reserved."
+msgstr "Все права защищены."
+
+msgid "API / backend"
+msgstr "API / backend"
+
+msgid "Automation"
+msgstr "Автоматизация"
+
+msgid "Back to home"
+msgstr "На главную"
+
+msgid "B2B commerce platform"
+msgstr "B2B-платформа для торговли"
+
+msgid "Build"
+msgstr "Разработка"
+
+msgid "ByteCore turns ideas into modern websites, automation and software that help teams work faster and grow with confidence."
+msgstr "ByteCore превращает идеи в современные сайты, автоматизацию и программные продукты, помогая командам работать быстрее и уверенно расти."
+
+msgid "ByteCore — IT services and digital products for ambitious businesses."
+msgstr "ByteCore — IT-услуги и цифровые продукты для амбициозного бизнеса."
+
+msgid "ByteCore | IT services and digital products"
+msgstr "ByteCore | IT-услуги и цифровые продукты"
+
+msgid "Clarity, reliability, open collaboration and quality."
+msgstr "Ясность, надёжность, открытое сотрудничество и качество."
+
+msgid "Company"
+msgstr "Компания"
+
+msgid "Company name"
+msgstr "Название компании"
+
+msgid "Completed"
+msgstr "Завершено"
+
+msgid "Contact"
+msgstr "Контакты"
+
+msgid "Contact us"
+msgstr "Свяжитесь с нами"
+
+msgid "CRM / automation"
+msgstr "CRM / автоматизация"
+
+msgid "Delivered projects"
+msgstr "Реализованные проекты"
+
+msgid "Design and prototype"
+msgstr "Дизайн и прототипирование"
+
+msgid "Digital solutions for your business"
+msgstr "Цифровые решения для вашего бизнеса"
+
+msgid "Discover requirements"
+msgstr "Изучение требований"
+
+msgid "Email"
+msgstr "Электронная почта"
+
+msgid "Engineering"
+msgstr "Инженерия"
+
+msgid "Faster customer communication and automated operations."
+msgstr "Быстрая связь с клиентами и автоматизация рабочих процессов."
+
+msgid "From first launch to long-term product growth, we design and ship the systems your team actually uses."
+msgstr "От первого запуска до долгосрочного развития продукта — мы проектируем и запускаем системы, которые действительно нужны вашей команде."
+
+msgid "Full name"
+msgstr "Имя и фамилия"
+
+msgid "Gallery"
+msgstr "Галерея"
+
+msgid "Get in touch"
+msgstr "Связаться с нами"
+
+msgid "Home"
+msgstr "Главная"
+
+msgid "In negotiation"
+msgstr "На переговорах"
+
+msgid "In progress"
+msgstr "В работе"
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "Launch and support"
+msgstr "Запуск и поддержка"
+
+msgid "Learn more"
+msgstr "Подробнее"
+
+msgid "Let’s build something great together."
+msgstr "Давайте вместе создадим отличный продукт."
+
+msgid "Main navigation"
+msgstr "Основная навигация"
+
+msgid "Meet the people behind the work."
+msgstr "Познакомьтесь с командой, которая создаёт наши проекты."
+
+msgid "Meet the team"
+msgstr "Познакомиться с командой"
+
+msgid "Mission"
+msgstr "Миссия"
+
+msgid "Modern digital experiences aligned with business goals."
+msgstr "Современные цифровые решения, отвечающие целям бизнеса."
+
+msgid "More projects"
+msgstr "Другие проекты"
+
+msgid "New"
+msgstr "Новая"
+
+msgid "Next step"
+msgstr "Следующий шаг"
+
+msgid "Ongoing support and updates"
+msgstr "Постоянная поддержка и обновления"
+
+msgid "Online store"
+msgstr "Интернет-магазин"
+
+msgid "Our approach"
+msgstr "Наш подход"
+
+msgid "Our goal is to give your business a strong digital platform."
+msgstr "Наша цель — создать для вашего бизнеса надёжную цифровую платформу."
+
+msgid "Our team profiles will be available soon."
+msgstr "Информация о команде появится совсем скоро."
+
+msgid "Other"
+msgstr "Другое"
+
+msgid "Page not found"
+msgstr "Страница не найдена"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Plan"
+msgstr "Планирование"
+
+msgid "Portfolio"
+msgstr "Портфолио"
+
+msgid "Privacy"
+msgstr "Конфиденциальность"
+
+msgid "Privacy policy"
+msgstr "Политика конфиденциальности"
+
+msgid "Process"
+msgstr "Процесс"
+
+msgid "Product design"
+msgstr "Дизайн продукта"
+
+msgid "Product-oriented architecture"
+msgstr "Архитектура с ориентацией на продукт"
+
+msgid "Professional and efficient delivery"
+msgstr "Профессиональная и оперативная разработка"
+
+msgid "Project"
+msgstr "Проект"
+
+msgid "Project images"
+msgstr "Изображения проекта"
+
+msgid "Project inquiry"
+msgstr "Запрос по проекту"
+
+msgid "Project type"
+msgstr "Тип проекта"
+
+msgid "Project URL"
+msgstr "Ссылка на проект"
+
+msgid "Projects"
+msgstr "Проекты"
+
+msgid "Quality, precision, security and fast execution"
+msgstr "Качество, точность, безопасность и оперативность"
+
+msgid "Quick links"
+msgstr "Быстрые ссылки"
+
+msgid "Rejected"
+msgstr "Отклонено"
+
+msgid "Related services"
+msgstr "Похожие услуги"
+
+msgid "Reliable delivery"
+msgstr "Надёжный результат"
+
+msgid "Responsive digital experiences designed to turn visitors into customers."
+msgstr "Адаптивные цифровые решения, которые превращают посетителей в клиентов."
+
+msgid "A selection of products and platforms built with our clients."
+msgstr "Подборка продуктов и платформ, созданных вместе с нашими клиентами."
+
+msgid "Selected projects"
+msgstr "Избранные проекты"
+
+msgid "Send request"
+msgstr "Отправить запрос"
+
+msgid "Service"
+msgstr "Услуга"
+
+msgid "Services"
+msgstr "Услуги"
+
+msgid "Shall we discuss your project?"
+msgstr "Обсудим ваш проект?"
+
+msgid "Solutions built around your business"
+msgstr "Решения для вашего бизнеса"
+
+msgid "Something went wrong"
+msgstr "Произошла ошибка"
+
+msgid "Specialists"
+msgstr "Специалисты"
+
+msgid "Start a project"
+msgstr "Начать проект"
+
+msgid "Support"
+msgstr "Поддержка"
+
+msgid "Team"
+msgstr "Команда"
+
+msgid "Technical and business specialists"
+msgstr "Технические и бизнес-специалисты"
+
+msgid "Telegram bot"
+msgstr "Telegram-бот"
+
+msgid "Telegram bots"
+msgstr "Telegram-боты"
+
+msgid "Tell us about your goals. Our team will get back to you to discuss the next steps."
+msgstr "Расскажите о своих целях. Наша команда свяжется с вами, чтобы обсудить дальнейшие шаги."
+
+msgid "Tell us briefly about your project..."
+msgstr "Кратко расскажите о вашем проекте..."
+
+msgid "Test"
+msgstr "Тестирование"
+
+msgid "The ByteCore team studies business needs and looks for technical solutions that also deliver strategic results. For every product we provide production-ready architecture, design grounded in user needs, and a model for sustainable growth."
+msgstr "Команда ByteCore изучает потребности бизнеса и находит технические решения, которые обеспечивают стратегический результат. Для каждого продукта мы предлагаем готовую к запуску архитектуру, дизайн с учётом потребностей пользователей и основу для устойчивого развития."
+
+msgid "The page may have moved or may no longer be available."
+msgstr "Возможно, страница была перемещена или больше недоступна."
+
+msgid "The phone number must start with +998 and contain 9 digits."
+msgstr "Номер телефона должен начинаться с +998 и содержать 9 цифр."
+
+msgid "This page is temporarily unavailable. Please try again in a little while."
+msgstr "Страница временно недоступна. Повторите попытку немного позже."
+
+msgid "Too many requests. Please try again in 5 minutes."
+msgstr "Слишком много запросов. Повторите попытку через 5 минут."
+
+msgid "Translation pending"
+msgstr "Перевод готовится"
+
+msgid "Turning digital innovation into practical business solutions"
+msgstr "Превращаем цифровые инновации в практичные бизнес-решения"
+
+msgid "Under review"
+msgstr "На рассмотрении"
+
+msgid "UI/UX design"
+msgstr "UI/UX-дизайн"
+
+msgid "Values"
+msgstr "Ценности"
+
+msgid "Website"
+msgstr "Веб-сайт"
+
+msgid "View our work"
+msgstr "Наши проекты"
+
+msgid "View project"
+msgstr "Смотреть проект"
+
+msgid "We bring code, design, automation and customer experience together. Every project gets a strategic approach and production-ready architecture."
+msgstr "Мы объединяем разработку, дизайн, автоматизацию и клиентский опыт. Каждый проект получает стратегический подход и архитектуру, готовую к запуску."
+
+msgid "We build digital products for ambitious businesses."
+msgstr "Мы создаём цифровые продукты для амбициозного бизнеса."
+
+msgid "We build digital transformation on a stable foundation."
+msgstr "Мы строим цифровую трансформацию на прочном фундаменте."
+
+msgid "We create practical, secure digital products that businesses can grow with."
+msgstr "Мы создаём практичные и безопасные цифровые продукты для роста бизнеса."
+
+msgid "We share personal information only with your consent or when required by law."
+msgstr "Мы передаём персональные данные только с вашего согласия или по требованию закона."
+
+msgid "We take reasonable measures to protect personal information. It is used only to discuss your project and deliver our services."
+msgstr "Мы принимаем необходимые меры для защиты персональных данных. Они используются только для обсуждения проекта и оказания наших услуг."
+
+msgid "We use personal information submitted through this website to respond to inquiries and manage projects. Information is processed only for legitimate business purposes and in accordance with applicable law."
+msgstr "Мы используем персональные данные, отправленные через сайт, чтобы отвечать на запросы и вести проекты. Данные обрабатываются только для законных деловых целей и в соответствии с применимым законодательством."
+
+msgid "Websites"
+msgstr "Веб-сайты"
+
+msgid "Websites and landing pages"
+msgstr "Веб-сайты и лендинги"
+
+msgid "Websites, e-commerce, messaging and automation shaped around the way you work."
+msgstr "Веб-сайты, онлайн-торговля, мессенджеры и автоматизация с учётом особенностей вашей работы."
+
+msgid "Work that delivers results"
+msgstr "Проекты, которые приносят результат"
+
+msgid "Years of experience"
+msgstr "Лет опыта"
+
+msgid "Your name"
+msgstr "Ваше имя"
+
+msgid "Your request has been received. We will contact you shortly."
+msgstr "Ваш запрос получен. Мы свяжемся с вами в ближайшее время."

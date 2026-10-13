@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
+{% load i18n i18n_extras %}
 
-{% block title %}{{ project.meta_title|default:project.title }} | ByteCore{% endblock %}
-{% block meta_description %}{{ project.meta_description|default:project.summary }}{% endblock %}
-{% block og_title %}{{ project.meta_title|default:project.title }} | ByteCore{% endblock %}
-{% block og_description %}{{ project.meta_description|default:project.summary }}{% endblock %}
+{% block title %}{{ project|localized_default:'meta_title,title' }} | ByteCore{% endblock %}
+{% block meta_description %}{{ project|localized_default:'meta_description,summary' }}{% endblock %}
+{% block og_title %}{{ project|localized_default:'meta_title,title' }} | ByteCore{% endblock %}
+{% block og_description %}{{ project|localized_default:'meta_description,summary' }}{% endblock %}
 {% block og_type %}article{% endblock %}
 {% block og_image %}{% if og_image %}<meta property="og:image" content="{{ og_image }}">{% endif %}{% endblock %}
 
 {% block content %}
     <section class="page-hero">
         <div class="container narrow reveal">
-            <span class="eyebrow">Loyiha</span>
-            <h1>{{ project.title }}</h1>
-            <p>{{ project.summary }}</p>
+            <span class="eyebrow">{% trans "Project" %}</span>
+            <h1>{{ project|localized:'title' }}</h1>
+            <p>{{ project|localized:'summary' }}</p>
             {% if cover_image %}
-                <img class="project-cover-image" src="{{ cover_image.url }}" alt="{% if cover_gallery_image.alt_text %}{{ cover_gallery_image.alt_text }}{% else %}{{ project.title }} loyihasi{% endif %}">
+                <img class="project-cover-image" src="{{ cover_image.url }}" alt="{% if cover_gallery_image.alt_text %}{{ cover_gallery_image.alt_text }}{% else %}{{ project|localized:'title' }}{% endif %}" fetchpriority="high">
             {% endif %}
         </div>
     </section>
@@ -23,7 +24,7 @@
         <div class="container split-layout">
             <div class="section-copy reveal">
                 <div class="rich-text">
-                    {{ project.description|linebreaksbr }}
+                    {{ project|localized:'description'|linebreaksbr }}
                 </div>
                 {% if project.technologies %}
                     <div class="tags project-detail-tags">
@@ -35,14 +36,14 @@
             </div>
             <div class="info-panel reveal">
                 {% if project.project_url %}
-                    <div class="mini-card"><span>Proyekt URL</span><strong><a href="{{ project.project_url }}" target="_blank" rel="noreferrer">{{ project.project_url }}</a></strong></div>
+                    <div class="mini-card"><span>{% trans "Project URL" %}</span><strong><a href="{{ project.project_url }}" target="_blank" rel="noreferrer">{{ project.project_url }}</a></strong></div>
                 {% endif %}
                 {% if other_projects %}
                     <div class="mini-card">
-                        <span>Boshqa loyihalar</span>
+                        <span>{% trans "More projects" %}</span>
                         <ul class="related-links">
                             {% for item in other_projects %}
-                                <li><a href="{% url 'core:project_detail' slug=item.slug %}">{{ item.title }}</a></li>
+                                <li><a href="{% url 'core:project_detail' slug=item.slug %}">{{ item|localized:'title' }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -54,8 +55,8 @@
         <section class="section project-gallery-section">
             <div class="container">
                 <div class="section-heading">
-                    <span class="eyebrow">Galereya</span>
-                    <h2>Loyiha tasvirlari</h2>
+                    <span class="eyebrow">{% trans "Gallery" %}</span>
+                    <h2>{% trans "Project images" %}</h2>
                 </div>
                 <div class="project-gallery">
                     {% for image in gallery_images %}

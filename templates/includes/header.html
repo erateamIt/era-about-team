@@ -1,7 +1,7 @@
-{% load static %}
+{% load static i18n %}
 <header class="site-header">
     <div class="container nav-shell">
-        <a href="{% url 'core:home' %}" class="brand" aria-label="ByteCore home">
+        <a href="{% url 'core:home' %}" class="brand" aria-label="ByteCore">
             {% if site_settings.logo %}
                 <span class="brand-logo-shell">
                     <img class="brand-logo" src="{{ site_settings.logo.url }}" alt="{{ site_settings.company_name }} logo">
@@ -18,14 +18,20 @@
             <span></span><span></span><span></span>
         </button>
 
-        <nav id="main-nav" class="main-nav" aria-label="Asosiy navigatsiya">
-            <a href="{% url 'core:home' %}"{% if request.resolver_match.url_name == "home" %} class="active" aria-current="page"{% endif %}>Bosh sahifa</a>
-            <a href="{% url 'core:about' %}"{% if request.resolver_match.url_name == "about" %} class="active" aria-current="page"{% endif %}>Biz haqimizda</a>
-            <a href="{% url 'core:services' %}"{% if request.resolver_match.url_name == "services" or request.resolver_match.url_name == "service_detail" %} class="active" aria-current="page"{% endif %}>Xizmatlar</a>
-            <a href="{% url 'core:projects' %}"{% if request.resolver_match.url_name == "projects" or request.resolver_match.url_name == "project_detail" %} class="active" aria-current="page"{% endif %}>Loyihalar</a>
-            <a href="{% url 'contact:contact' %}"{% if request.resolver_match.url_name == "contact" %} class="active" aria-current="page"{% endif %}>Aloqa</a>
+        <nav id="main-nav" class="main-nav" aria-label="{% trans 'Main navigation' %}">
+            <a href="{% url 'core:home' %}"{% if request.resolver_match.url_name == "home" %} class="active" aria-current="page"{% endif %}>{% trans "Home" %}</a>
+            <a href="{% url 'core:about' %}"{% if request.resolver_match.url_name == "about" %} class="active" aria-current="page"{% endif %}>{% trans "About" %}</a>
+            <a href="{% url 'core:services' %}"{% if request.resolver_match.url_name == "services" or request.resolver_match.url_name == "service_detail" %} class="active" aria-current="page"{% endif %}>{% trans "Services" %}</a>
+            <a href="{% url 'core:projects' %}"{% if request.resolver_match.url_name == "projects" or request.resolver_match.url_name == "project_detail" %} class="active" aria-current="page"{% endif %}>{% trans "Projects" %}</a>
+            <a href="{% url 'core:team' %}"{% if request.resolver_match.url_name == "team" %} class="active" aria-current="page"{% endif %}>{% trans "Team" %}</a>
+            <a href="{% url 'contact:contact' %}"{% if request.resolver_match.url_name == "contact" %} class="active" aria-current="page"{% endif %}>{% trans "Contact" %}</a>
+            <div class="lang-switch" aria-label="{% trans 'Language' %}">
+                {% for item in language_urls %}
+                    <a href="{{ item.url }}" hreflang="{{ item.code }}" {% if item.active %}aria-current="true" class="is-active"{% endif %}>{{ item.code|upper }}</a>
+                {% endfor %}
+            </div>
         </nav>
 
-        <a class="btn btn-primary btn-small" href="{% url 'contact:contact' %}">Loyiha boshlash</a>
+        <a class="btn btn-primary btn-small" href="{% url 'contact:contact' %}">{% trans "Start a project" %}</a>
     </div>
 </header>

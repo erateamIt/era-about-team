@@ -1,3 +1,4 @@
+{% load i18n i18n_extras %}
 <footer class="site-footer">
     <div class="container footer-grid">
         <div>
@@ -9,30 +10,31 @@
                     <span class="brand-text">{{ site_settings.company_name|default:"ByteCore" }}</span>
                 {% endif %}
             </a>
-            <p>{{ site_settings.footer_text|default:site_settings.tagline }}</p>
+            <p>{{ site_settings|localized:'footer_text'|default:site_settings.tagline }}</p>
         </div>
         <div>
-            <h4>Saytlar</h4>
+            <h4>{% trans "Quick links" %}</h4>
             <ul>
-                <li><a href="{% url 'core:about' %}">Biz haqimizda</a></li>
-                <li><a href="{% url 'core:services' %}">Xizmatlar</a></li>
-                <li><a href="{% url 'core:projects' %}">Loyihalar</a></li>
-                <li><a href="{% url 'contact:contact' %}">Aloqa</a></li>
+                <li><a href="{% url 'core:about' %}">{% trans "About" %}</a></li>
+                <li><a href="{% url 'core:services' %}">{% trans "Services" %}</a></li>
+                <li><a href="{% url 'core:projects' %}">{% trans "Projects" %}</a></li>
+                <li><a href="{% url 'core:team' %}">{% trans "Team" %}</a></li>
+                <li><a href="{% url 'contact:contact' %}">{% trans "Contact" %}</a></li>
             </ul>
         </div>
         <div>
-            <h4>Xizmatlar</h4>
+            <h4>{% trans "Services" %}</h4>
             <ul>
                 {% for service in footer_services %}
-                    <li><a href="{% url 'core:service_detail' slug=service.slug %}">{{ service.title }}</a></li>
+                    <li><a href="{% url 'core:service_detail' slug=service.slug %}">{{ service|localized:'title' }}</a></li>
                 {% empty %}
-                    <li><a href="{% url 'core:services' %}">Web saytlar</a></li>
-                    <li><a href="{% url 'core:services' %}">Telegram botlar</a></li>
+                    <li><a href="{% url 'core:services' %}">{% trans "Websites" %}</a></li>
+                    <li><a href="{% url 'core:services' %}">{% trans "Telegram bots" %}</a></li>
                 {% endfor %}
             </ul>
         </div>
         <div>
-            <h4>Kontakt</h4>
+            <h4>{% trans "Contact us" %}</h4>
             <ul>
                 <li><a href="tel:{{ site_settings.phone }}">{{ site_settings.phone }}</a></li>
                 <li><a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a></li>
@@ -43,7 +45,7 @@
         </div>
     </div>
     <div class="container footer-bottom">
-        <p>© {% now 'Y' %} ByteCore. Barcha huquqlar himoyalangan.</p>
-        <a href="{% url 'core:privacy' %}">Maxfiylik siyosati</a>
+        <p>© {% now 'Y' %} ByteCore. {% trans "All rights reserved." %}</p>
+        <a href="{% url 'core:privacy' %}">{% trans "Privacy policy" %}</a>
     </div>
 </footer>

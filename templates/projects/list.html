@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
+{% load i18n i18n_extras %}
 
-{% block title %}Loyihalar | ByteCore{% endblock %}
+{% block title %}{% trans "Projects" %} | ByteCore{% endblock %}
 
 {% block content %}
     <section class="page-hero">
         <div class="container narrow reveal">
-            <span class="eyebrow">Portfolio</span>
-            <h1>Biz qo‘lga kiritgan natijalar</h1>
+            <span class="eyebrow">{% trans "Portfolio" %}</span>
+            <h1>{% trans "Work that delivers results" %}</h1>
+            <p>{% trans "A selection of products and platforms built with our clients." %}</p>
         </div>
     </section>
 
@@ -16,23 +18,22 @@
                 {% for project in projects %}
                     <article class="project-card reveal">
                         {% if project.cover_image %}
-                            <img src="{{ project.cover_image.url }}" alt="{{ project.title }}">
+                            <img src="{{ project.cover_image.url }}" alt="{{ project|localized:'title' }}" loading="lazy" decoding="async">
                         {% else %}
-                            <div class="project-placeholder">{{ project.title }}</div>
+                            <div class="project-placeholder">{{ project|localized:'title' }}</div>
                         {% endif %}
                         <div class="project-body">
-                            <h3>{{ project.title }}</h3>
-                            <p>{{ project.summary }}</p>
+                            <h3>{{ project|localized:'title' }}</h3>
+                            <p>{{ project|localized:'summary' }}</p>
                             <div class="tags">
                                 {% for tech in project.technologies %}
                                     <span>{{ tech }}</span>
                                 {% endfor %}
                             </div>
-                            <a href="{% url 'core:project_detail' slug=project.slug %}">Batafsil</a>
+                            <a href="{% url 'core:project_detail' slug=project.slug %}">{% trans "View project" %}</a>
                         </div>
                     </article>
                 {% empty %}
-                    <article class="project-card reveal"><div class="project-placeholder">NovaTrade</div><div class="project-body"><h3>NovaTrade</h3><p>B2B savdo platformasi</p></div></article>
                 {% endfor %}
             </div>
         </div>

@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
+{% load i18n i18n_extras %}
 
-{% block title %}Xizmatlar | ByteCore{% endblock %}
+{% block title %}{% trans "Services" %} | ByteCore{% endblock %}
 
 {% block content %}
     <section class="page-hero">
         <div class="container narrow reveal">
-            <span class="eyebrow">Xizmatlar</span>
-            <h1>Biznesingizga mos raqamli yechimlar</h1>
+            <span class="eyebrow">{% trans "Services" %}</span>
+            <h1>{% trans "Digital solutions for your business" %}</h1>
+            <p>{% trans "Websites, e-commerce, messaging and automation shaped around the way you work." %}</p>
         </div>
     </section>
 
@@ -16,12 +18,12 @@
                 {% for service in services %}
                     <article class="card reveal">
                         <div class="icon-box">{{ service.icon }}</div>
-                        <h3>{{ service.title }}</h3>
-                        <p>{{ service.short_description }}</p>
-                        <a href="{% url 'core:service_detail' slug=service.slug %}">Batafsil</a>
+                        <h3>{{ service|localized:'title' }}</h3>
+                        <p>{{ service|localized:'short_description' }}</p>
+                        <a href="{% url 'core:service_detail' slug=service.slug %}">{% trans "Learn more" %}</a>
                     </article>
                 {% empty %}
-                    <article class="card reveal"><h3>Web saytlar va landing page</h3><p>...</p></article>
+                    <article class="card reveal"><h3>{% trans "Websites and landing pages" %}</h3><p>{% trans "Responsive digital experiences designed to turn visitors into customers." %}</p></article>
                 {% endfor %}
             </div>
         </div>

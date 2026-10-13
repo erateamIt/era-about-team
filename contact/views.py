@@ -8,6 +8,7 @@ from urllib.error import URLError
 
 from django.conf import settings
 from django.contrib import messages
+from django.utils.translation import gettext as _
 from django.core.cache import cache
 from django.db import close_old_connections
 from django.http import HttpResponse
@@ -93,24 +94,24 @@ def contact_page(request):
         rate_limit_key = _contact_rate_limit_key(request)
         if cache.get(rate_limit_key, 0) >= CONTACT_RATE_LIMIT:
             return HttpResponse(
-                "Juda ko‘p so‘rov yuborildi. 5 daqiqadan so‘ng qayta urinib ko‘ring.",
+                _("Too many requests. Please try again in 5 minutes."),
                 status=429,
                 content_type="text/plain; charset=utf-8",
             )
         form = ContactForm(request.POST)
         if form.is_valid():
             if form.cleaned_data["website"]:
-                messages.success(request, "Murojaatingiz qabul qilindi. Tez orada biz bilan bog‘lanamiz.")
+                messages.success(request, _("Your request has been received. We will contact you shortly."))
                 return redirect("contact:contact")
             if _consume_contact_submission(rate_limit_key) > CONTACT_RATE_LIMIT:
                 return HttpResponse(
-                    "Juda ko‘p so‘rov yuborildi. 5 daqiqadan so‘ng qayta urinib ko‘ring.",
+                    _("Too many requests. Please try again in 5 minutes."),
                     status=429,
                     content_type="text/plain; charset=utf-8",
                 )
             lead = form.save()
             _start_telegram_notification(lead.pk)
-            messages.success(request, "Murojaatingiz qabul qilindi. Tez orada biz bilan bog‘lanamiz.")
+            messages.success(request, _("Your request has been received. We will contact you shortly."))
             return redirect("contact:contact")
     else:
         form = ContactForm()

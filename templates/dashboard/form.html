@@ -24,7 +24,41 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class="form-actions"><button class="button button-primary" type="submit">Saqlash</button><a class="button button-quiet" href="{% url cancel_url %}">Bekor qilish</a></div>
+            {% if formset %}
+                <details class="translation-editor">
+                    <summary><strong>{{ translation_title }}ni ko‘rish va tahrirlash</strong></summary>
+                    <p>Asosiy matnni o‘zbek tilida kiriting. Tarjima mavjud bo‘lmasa, sayt o‘zbekcha matnni ko‘rsatadi.</p>
+                    {{ formset.management_form }}
+                    {% for translation_form in formset %}
+                        <fieldset class="translation-fields">
+                            <legend>{{ translation_form.language_label }}</legend>
+                            {% if translation_form.instance.pk %}
+                                <p class="translation-status">
+                                    Holati: {{ translation_form.instance.get_status_display }}
+                                    {% if translation_form.instance.is_manual %} · Qo‘lda tahrirlangan{% endif %}
+                                    {% if translation_form.instance.status == "stale" %} · Eskirgan{% endif %}
+                                </p>
+                                {% if translation_form.instance.last_error %}
+                                    <p class="field-errors">{{ translation_form.instance.last_error }}</p>
+                                {% endif %}
+                            {% endif %}
+                            {% for hidden in translation_form.hidden_fields %}{{ hidden }}{% endfor %}
+                            {% for field in translation_form.visible_fields %}
+                                <div class="form-field{% if field.name == 'description' or field.name == 'bio' or field.name == 'meta_description' or field.name == 'footer_text' %} field-wide{% endif %}">
+                                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                    {{ field }}
+                                    {% if field.errors %}<div class="field-errors">{{ field.errors }}</div>{% endif %}
+                                </div>
+                            {% endfor %}
+                        </fieldset>
+                    {% endfor %}
+                </details>
+            {% endif %}
+            <div class="form-actions">
+                <button class="button button-primary" type="submit">Saqlash</button>
+                <a class="button button-quiet" href="{% url cancel_url %}">Bekor qilish</a>
+            </div>
+            <p>Saqlashdan so‘ng mavjud bo‘lmagan tarjimalar avtomatik yaratiladi. Qo‘lda tahrirlangan matnlar o‘zgarmaydi.</p>
         </form>
     </section>
 {% endblock %}

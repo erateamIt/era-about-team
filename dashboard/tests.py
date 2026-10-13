@@ -4,11 +4,13 @@ from django.core.cache import cache
 from django.test import Client, TestCase
 from django.urls import reverse
 from django.utils import timezone
+from unittest.mock import patch
 
 from contact.models import Lead
 from core.models import SiteSettings
+from core.translation_service import TranslationServiceError
 from projects.models import Project
-from services.models import Service
+from services.models import Service, ServiceTranslation
 from team.models import TeamMember
 
 
@@ -88,6 +90,12 @@ class DashboardAccessTests(TestCase):
 
 class DashboardDataTests(TestCase):
     def setUp(self):
+        translation_patch = patch(
+            "core.translation_service.translate_text",
+            side_effect=lambda text, language: f"{language}:{text}",
+        )
+        self.mock_translation = translation_patch.start()
+        self.addCleanup(translation_patch.stop)
         self.user = User.objects.create_superuser(
             username="admin",
             email="admin@example.test",
@@ -186,6 +194,72 @@ class DashboardDataTests(TestCase):
         lead.refresh_from_db()
         self.assertEqual(lead.status, "negotiating")
 
+    def test_service_translation_formset_preserves_and_updates_each_language(self):
+        service = Service.objects.create(
+            title="Website",
+            slug="website",
+            short_description="Short",
+            description="Description",
+        )
+        russian = ServiceTranslation.objects.create(
+            service=service,
+            language="ru",
+            title="Веб-сайт",
+            short_description="Создание сайтов",
+            description="Подробное описание",
+        )
+        edit_url = reverse("dashboard:service_edit", args=[service.pk])
+        response = self.client.get(edit_url)
+        formset = response.context["formset"]
+        self.assertEqual(
+            [form.language_code for form in formset.forms],
+            ["ru", "tr", "en"],
+        )
+
+        response = self.client.post(
+            edit_url,
+            {
+                "title": "Website",
+                "slug": "website",
+                "short_description": "Short",
+                "description": "Description",
+                "icon": "globe",
+                "order": "0",
+                "is_active": "on",
+                "translations-TOTAL_FORMS": "3",
+                "translations-INITIAL_FORMS": "1",
+                "translations-MIN_NUM_FORMS": "0",
+                "translations-MAX_NUM_FORMS": "3",
+                "translations-0-id": str(russian.pk),
+                "translations-0-language": "ru",
+                "translations-0-title": "Веб-платформы",
+                "translations-0-short_description": "Разработка сайтов",
+                "translations-0-description": "Обновлённое описание",
+                "translations-0-meta_title": "",
+                "translations-0-meta_description": "",
+                "translations-1-language": "tr",
+                "translations-1-title": "Web siteleri",
+                "translations-1-short_description": "Kurumsal web sitesi geliştirme",
+                "translations-1-description": "İşletmeler için modern web siteleri.",
+                "translations-1-meta_title": "",
+                "translations-1-meta_description": "",
+                "translations-2-language": "en",
+                "translations-2-title": "Websites",
+                "translations-2-short_description": "Business website development",
+                "translations-2-description": "Modern websites for businesses.",
+                "translations-2-meta_title": "",
+                "translations-2-meta_description": "",
+            },
+        )
+        self.assertRedirects(response, reverse("dashboard:services"))
+        service.refresh_from_db()
+        russian.refresh_from_db()
+        self.assertEqual(service.title, "Website")
+        self.assertEqual(russian.title, "Веб-платформы")
+        self.assertEqual(russian.description, "Обновлённое описание")
+        self.assertEqual(service.translations.get(language="tr").title, "Web siteleri")
+        self.assertEqual(service.translations.get(language="en").title, "Websites")
+
     def test_dashboard_crud_for_services_projects_team_and_settings(self):
         service_url = reverse("dashboard:service_create")
         response = self.client.post(
@@ -242,6 +316,8 @@ class DashboardDataTests(TestCase):
         self.assertRedirects(response, reverse("dashboard:projects"))
         project = Project.objects.get(title="Dashboard project")
         self.assertEqual(project.technologies, ["Django", "PostgreSQL", "CSS"])
+        self.assertEqual(project.translations.get(language="ru").title, "ru:Dashboard project")
+        self.assertEqual(project.translations.get(language="en").description, "en:Project body")
         self.assertFalse(project.is_published)
         response = self.client.post(
             reverse("dashboard:project_edit", args=[project.pk]),
@@ -274,6 +350,8 @@ class DashboardDataTests(TestCase):
         )
         self.assertRedirects(response, reverse("dashboard:team"))
         member = TeamMember.objects.get(name="Dashboard teammate", is_active=True)
+        self.assertEqual(member.translations.get(language="tr").position, "tr:Engineer")
+        self.assertEqual(member.translations.get(language="en").bio, "en:Profile")
         response = self.client.post(
             reverse("dashboard:team_edit", args=[member.pk]),
             {
@@ -347,6 +425,141 @@ class DashboardDataTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Bu slug bilan xizmat mavjud.")
         self.assertEqual(Service.objects.count(), 1)
+
+    def test_save_and_translate_persists_uzbek_source_and_all_three_translations(self):
+        with patch(
+            "core.translation_service.translate_text",
+            side_effect=lambda text, language: f"{language}:{text}",
+        ) as translate:
+            response = self.client.post(
+                reverse("dashboard:service_create"),
+                {
+                    "title": "Veb-sayt",
+                    "slug": "",
+                    "short_description": "Qisqa tavsif",
+                    "description": "To‘liq tavsif",
+                    "meta_title": "SEO sarlavha",
+                    "meta_description": "SEO tavsifi",
+                    "icon": "globe",
+                    "order": "0",
+                    "is_active": "on",
+                },
+                follow=True,
+            )
+
+        service = Service.objects.get(slug="veb-sayt")
+        self.assertEqual(service.title, "Veb-sayt")
+        self.assertEqual(
+            set(service.translations.values_list("language", flat=True)),
+            {"ru", "en", "tr"},
+        )
+        for language in ("ru", "en", "tr"):
+            translation = service.translations.get(language=language)
+            translation.refresh_from_db()
+            self.assertEqual(translation.title, f"{language}:Veb-sayt")
+            self.assertEqual(translation.status, translation.STATUS_COMPLETE)
+            self.assertFalse(translation.is_manual)
+            self.assertEqual(service.get_translated("title", language), translation.title)
+        self.assertEqual(translate.call_count, 15)
+        self.assertContains(response, "tarjimalari saqlandi")
+        self.assertContains(response, "RU: Tayyor")
+
+    def test_translation_error_keeps_uzbek_content_and_can_be_retried(self):
+        payload = {
+            "title": "Sinov xizmati",
+            "slug": "",
+            "short_description": "Qisqa",
+            "description": "Batafsil",
+            "icon": "globe",
+            "order": "0",
+            "is_active": "on",
+        }
+        with patch(
+            "core.translation_service.translate_text",
+            side_effect=TranslationServiceError("Provider unavailable"),
+        ):
+            response = self.client.post(reverse("dashboard:service_create"), payload, follow=True)
+
+        service = Service.objects.get(slug="sinov-xizmati")
+        self.assertEqual(service.title, "Sinov xizmati")
+        self.assertContains(response, "Provider unavailable")
+        self.assertContains(response, "RU: Xatolik")
+        self.assertEqual(
+            set(service.translations.filter(status="failed").values_list("language", flat=True)),
+            {"ru", "en", "tr"},
+        )
+
+        with patch(
+            "core.translation_service.translate_text",
+            side_effect=lambda text, language: f"{language}:{text}",
+        ):
+            self.client.post(reverse("dashboard:service_edit", args=[service.pk]), payload)
+        service.refresh_from_db()
+        self.assertEqual(service.translations.get(language="en").status, "complete")
+        response = self.client.get(f"/en/services/{service.slug}/")
+        self.assertContains(response, "Sinov xizmati")
+
+    def test_retranslation_preserves_manual_values_without_confirmation(self):
+        service = Service.objects.create(
+            title="Veb-sayt",
+            slug="manual-translation",
+            short_description="Qisqa",
+            description="Batafsil",
+        )
+        manual = ServiceTranslation.objects.create(
+            service=service,
+            language="ru",
+            title="Редакторский перевод",
+            short_description="Кратко",
+            description="Подробное описание",
+            status="complete",
+        )
+        payload = {
+            "title": service.title,
+            "slug": service.slug,
+            "short_description": service.short_description,
+            "description": service.description,
+            "icon": service.icon,
+            "order": "0",
+            "is_active": "on",
+        }
+        self.mock_translation.reset_mock()
+        self.client.post(reverse("dashboard:service_edit", args=[service.pk]), payload)
+
+        manual.refresh_from_db()
+        self.assertEqual(manual.title, "Редакторский перевод")
+        self.assertTrue(manual.is_manual)
+        self.assertNotIn("ru", [call.args[1] for call in self.mock_translation.call_args_list])
+
+    def test_confirmed_retranslation_can_replace_manual_translation(self):
+        service = Service.objects.create(
+            title="Veb-sayt",
+            slug="confirmed-translation",
+            short_description="Qisqa",
+            description="Batafsil",
+        )
+        translation = ServiceTranslation.objects.create(
+            service=service,
+            language="ru",
+            title="Manual",
+            short_description="Manual short",
+            description="Manual description",
+            status="complete",
+        )
+        with patch(
+            "core.translation_service.translate_text",
+            side_effect=lambda text, language: f"{language}:{text}",
+        ):
+            self.client.post(
+                reverse("dashboard:service_translate", args=[service.pk]),
+                {
+                    "overwrite_manual": "1",
+                },
+            )
+
+        translation.refresh_from_db()
+        self.assertEqual(translation.title, "ru:Veb-sayt")
+        self.assertFalse(translation.is_manual)
 
     def test_dashboard_permissions_are_enforced_per_section_and_action(self):
         limited_staff = User.objects.create_user(username="limited", password="safe-test-password", is_staff=True)

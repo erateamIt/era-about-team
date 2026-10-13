@@ -1,9 +1,13 @@
 from django.db import models
 
+from core.i18n import TranslatableMixin, TranslationBase
 from core.validators import validate_image_file
 
 
-class TeamMember(models.Model):
+class TeamMember(TranslatableMixin, models.Model):
+    translation_fields = ("position", "bio")
+    translation_fallback_fields = ("position",)
+    translation_required_fields = ("position", "bio")
     name = models.CharField(max_length=120)
     position = models.CharField(max_length=120)
     bio = models.TextField()
@@ -22,3 +26,17 @@ class TeamMember(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class TeamMemberTranslation(TranslationBase):
+    member = models.ForeignKey(TeamMember, related_name="translations", on_delete=models.CASCADE)
+    position = models.CharField(max_length=120, blank=True)
+    bio = models.TextField(blank=True)
+
+    class Meta:
+        unique_together = ("member", "language")
+        verbose_name = "team member translation"
+        verbose_name_plural = "team member translations"
+
+    def __str__(self):
+        return f"{self.member_id} [{self.language}]"

@@ -1,25 +1,26 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class Lead(models.Model):
     STATUS_CHOICES = [
-        ("new", "Yangi"),
-        ("reviewing", "Ko'rib chiqilmoqda"),
-        ("negotiating", "Muzokarada"),
-        ("in_progress", "Bajarilmoqda"),
-        ("completed", "Yakunlandi"),
-        ("rejected", "Rad etildi"),
+        ("new", _("New")),
+        ("reviewing", _("Under review")),
+        ("negotiating", _("In negotiation")),
+        ("in_progress", _("In progress")),
+        ("completed", _("Completed")),
+        ("rejected", _("Rejected")),
     ]
 
     PROJECT_CHOICES = [
-        ("website", "Web sayt"),
-        ("ecommerce", "Internet-do'kon"),
-        ("telegram_bot", "Telegram bot"),
-        ("crm", "CRM / avtomatlashtirish"),
-        ("api", "API / backend"),
-        ("design", "UI/UX dizayn"),
-        ("ai", "AI integratsiyasi"),
-        ("other", "Boshqa"),
+        ("website", _("Website")),
+        ("ecommerce", _("Online store")),
+        ("telegram_bot", _("Telegram bot")),
+        ("crm", _("CRM / automation")),
+        ("api", _("API / backend")),
+        ("design", _("UI/UX design")),
+        ("ai", _("AI integration")),
+        ("other", _("Other")),
     ]
 
     full_name = models.CharField(max_length=120)

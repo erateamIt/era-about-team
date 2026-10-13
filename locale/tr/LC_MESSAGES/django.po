@@ -1,0 +1,377 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "About"
+msgstr "Hakkımızda"
+
+msgid "About the project"
+msgstr "Proje hakkında"
+
+msgid "A clear and transparent workflow"
+msgstr "Açık ve şeffaf bir çalışma süreci"
+
+msgid "A clear start"
+msgstr "Sağlam bir başlangıç"
+
+msgid "A closer look at products we have designed, built and launched with our partners."
+msgstr "İş ortaklarımızla birlikte tasarladığımız, geliştirdiğimiz ve yayına aldığımız ürünleri keşfedin."
+
+msgid "A considered strategy and a solution tailored to your goals."
+msgstr "Özenle oluşturulmuş bir strateji ve hedeflerinize uygun bir çözüm."
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "A focused team combining engineering, design and business thinking."
+msgstr "Mühendislik, tasarım ve iş bakış açısını bir araya getiren uzman bir ekip."
+
+msgid "AI integration"
+msgstr "Yapay zekâ entegrasyonu"
+
+msgid "All rights reserved."
+msgstr "Tüm hakları saklıdır."
+
+msgid "API / backend"
+msgstr "API / backend"
+
+msgid "Automation"
+msgstr "Otomasyon"
+
+msgid "Back to home"
+msgstr "Ana sayfaya dön"
+
+msgid "B2B commerce platform"
+msgstr "B2B ticaret platformu"
+
+msgid "Build"
+msgstr "Geliştirme"
+
+msgid "ByteCore turns ideas into modern websites, automation and software that help teams work faster and grow with confidence."
+msgstr "ByteCore, fikirleri ekiplerin daha hızlı çalışmasına ve güvenle büyümesine yardımcı olan modern web sitelerine, otomasyona ve yazılımlara dönüştürür."
+
+msgid "ByteCore — IT services and digital products for ambitious businesses."
+msgstr "ByteCore — iddialı işletmeler için BT hizmetleri ve dijital ürünler."
+
+msgid "ByteCore | IT services and digital products"
+msgstr "ByteCore | BT hizmetleri ve dijital ürünler"
+
+msgid "Clarity, reliability, open collaboration and quality."
+msgstr "Açıklık, güvenilirlik, açık iş birliği ve kalite."
+
+msgid "Company"
+msgstr "Şirket"
+
+msgid "Company name"
+msgstr "Şirket adı"
+
+msgid "Completed"
+msgstr "Tamamlandı"
+
+msgid "Contact"
+msgstr "İletişim"
+
+msgid "Contact us"
+msgstr "Bize ulaşın"
+
+msgid "CRM / automation"
+msgstr "CRM / otomasyon"
+
+msgid "Delivered projects"
+msgstr "Tamamlanan projeler"
+
+msgid "Design and prototype"
+msgstr "Tasarım ve prototipleme"
+
+msgid "Digital solutions for your business"
+msgstr "İşletmeniz için dijital çözümler"
+
+msgid "Discover requirements"
+msgstr "İhtiyaçları anlama"
+
+msgid "Email"
+msgstr "E-posta"
+
+msgid "Engineering"
+msgstr "Mühendislik"
+
+msgid "Faster customer communication and automated operations."
+msgstr "Daha hızlı müşteri iletişimi ve otomatik iş süreçleri."
+
+msgid "From first launch to long-term product growth, we design and ship the systems your team actually uses."
+msgstr "İlk yayından uzun vadeli ürün gelişimine kadar ekibinizin gerçekten kullandığı sistemleri tasarlıyor ve hayata geçiriyoruz."
+
+msgid "Full name"
+msgstr "Ad soyad"
+
+msgid "Gallery"
+msgstr "Galeri"
+
+msgid "Get in touch"
+msgstr "İletişime geçin"
+
+msgid "Home"
+msgstr "Ana sayfa"
+
+msgid "In negotiation"
+msgstr "Görüşülüyor"
+
+msgid "In progress"
+msgstr "Devam ediyor"
+
+msgid "Language"
+msgstr "Dil"
+
+msgid "Launch and support"
+msgstr "Yayına alma ve destek"
+
+msgid "Learn more"
+msgstr "Daha fazla bilgi"
+
+msgid "Let’s build something great together."
+msgstr "Birlikte harika bir ürün geliştirelim."
+
+msgid "Main navigation"
+msgstr "Ana menü"
+
+msgid "Meet the people behind the work."
+msgstr "Projelerin arkasındaki ekiple tanışın."
+
+msgid "Meet the team"
+msgstr "Ekiple tanışın"
+
+msgid "Mission"
+msgstr "Misyon"
+
+msgid "Modern digital experiences aligned with business goals."
+msgstr "İş hedeflerinizle uyumlu modern dijital deneyimler."
+
+msgid "More projects"
+msgstr "Diğer projeler"
+
+msgid "New"
+msgstr "Yeni"
+
+msgid "Next step"
+msgstr "Sonraki adım"
+
+msgid "Ongoing support and updates"
+msgstr "Sürekli destek ve güncellemeler"
+
+msgid "Online store"
+msgstr "Online mağaza"
+
+msgid "Our approach"
+msgstr "Yaklaşımımız"
+
+msgid "Our goal is to give your business a strong digital platform."
+msgstr "Amacımız işletmeniz için güçlü bir dijital platform oluşturmaktır."
+
+msgid "Our team profiles will be available soon."
+msgstr "Ekip üyelerimizin profilleri yakında yayınlanacaktır."
+
+msgid "Other"
+msgstr "Diğer"
+
+msgid "Page not found"
+msgstr "Sayfa bulunamadı"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Plan"
+msgstr "Planlama"
+
+msgid "Portfolio"
+msgstr "Portföy"
+
+msgid "Privacy"
+msgstr "Gizlilik"
+
+msgid "Privacy policy"
+msgstr "Gizlilik politikası"
+
+msgid "Process"
+msgstr "Süreç"
+
+msgid "Product design"
+msgstr "Ürün tasarımı"
+
+msgid "Product-oriented architecture"
+msgstr "Ürün odaklı mimari"
+
+msgid "Professional and efficient delivery"
+msgstr "Profesyonel ve verimli geliştirme"
+
+msgid "Project"
+msgstr "Proje"
+
+msgid "Project images"
+msgstr "Proje görselleri"
+
+msgid "Project inquiry"
+msgstr "Proje talebi"
+
+msgid "Project type"
+msgstr "Proje türü"
+
+msgid "Project URL"
+msgstr "Proje bağlantısı"
+
+msgid "Projects"
+msgstr "Projeler"
+
+msgid "Quality, precision, security and fast execution"
+msgstr "Kalite, özen, güvenlik ve hızlı teslimat"
+
+msgid "Quick links"
+msgstr "Hızlı bağlantılar"
+
+msgid "Rejected"
+msgstr "Reddedildi"
+
+msgid "Related services"
+msgstr "İlgili hizmetler"
+
+msgid "Reliable delivery"
+msgstr "Güvenilir teslimat"
+
+msgid "Responsive digital experiences designed to turn visitors into customers."
+msgstr "Ziyaretçileri müşterilere dönüştürmek için tasarlanmış duyarlı dijital deneyimler."
+
+msgid "A selection of products and platforms built with our clients."
+msgstr "Müşterilerimizle birlikte geliştirdiğimiz ürün ve platformlardan bir seçki."
+
+msgid "Selected projects"
+msgstr "Öne çıkan projeler"
+
+msgid "Send request"
+msgstr "Talep gönder"
+
+msgid "Service"
+msgstr "Hizmet"
+
+msgid "Services"
+msgstr "Hizmetler"
+
+msgid "Shall we discuss your project?"
+msgstr "Projenizi konuşalım mı?"
+
+msgid "Solutions built around your business"
+msgstr "İşletmenize özel çözümler"
+
+msgid "Something went wrong"
+msgstr "Bir hata oluştu"
+
+msgid "Specialists"
+msgstr "Uzmanlarımız"
+
+msgid "Start a project"
+msgstr "Proje başlat"
+
+msgid "Support"
+msgstr "Destek"
+
+msgid "Team"
+msgstr "Ekip"
+
+msgid "Technical and business specialists"
+msgstr "Teknik ve iş uzmanları"
+
+msgid "Telegram bot"
+msgstr "Telegram botu"
+
+msgid "Telegram bots"
+msgstr "Telegram botları"
+
+msgid "Tell us about your goals. Our team will get back to you to discuss the next steps."
+msgstr "Hedeflerinizi bize anlatın. Ekibimiz sonraki adımları görüşmek için sizinle iletişime geçecektir."
+
+msgid "Tell us briefly about your project..."
+msgstr "Projenizi kısaca anlatın..."
+
+msgid "Test"
+msgstr "Test"
+
+msgid "The ByteCore team studies business needs and looks for technical solutions that also deliver strategic results. For every product we provide production-ready architecture, design grounded in user needs, and a model for sustainable growth."
+msgstr "ByteCore ekibi iş ihtiyaçlarını inceler ve stratejik sonuçlar sağlayan teknik çözümler geliştirir. Her ürün için yayına hazır mimari, kullanıcı ihtiyaçlarına dayalı tasarım ve sürdürülebilir büyüme modeli sunarız."
+
+msgid "The page may have moved or may no longer be available."
+msgstr "Sayfa taşınmış veya artık kullanılamıyor olabilir."
+
+msgid "The phone number must start with +998 and contain 9 digits."
+msgstr "Telefon numarası +998 ile başlamalı ve 9 rakam içermelidir."
+
+msgid "This page is temporarily unavailable. Please try again in a little while."
+msgstr "Bu sayfa geçici olarak kullanılamıyor. Lütfen biraz sonra tekrar deneyin."
+
+msgid "Too many requests. Please try again in 5 minutes."
+msgstr "Çok fazla istek gönderildi. Lütfen 5 dakika sonra tekrar deneyin."
+
+msgid "Translation pending"
+msgstr "Çeviri bekleniyor"
+
+msgid "Turning digital innovation into practical business solutions"
+msgstr "Dijital yenilikleri uygulanabilir iş çözümlerine dönüştürüyoruz"
+
+msgid "Under review"
+msgstr "İnceleniyor"
+
+msgid "UI/UX design"
+msgstr "UI/UX tasarımı"
+
+msgid "Values"
+msgstr "Değerler"
+
+msgid "Website"
+msgstr "Web sitesi"
+
+msgid "View our work"
+msgstr "Projelerimizi inceleyin"
+
+msgid "View project"
+msgstr "Projeyi incele"
+
+msgid "We bring code, design, automation and customer experience together. Every project gets a strategic approach and production-ready architecture."
+msgstr "Yazılımı, tasarımı, otomasyonu ve müşteri deneyimini bir araya getiriyoruz. Her projeye stratejik yaklaşım ve yayına hazır mimari sunuyoruz."
+
+msgid "We build digital products for ambitious businesses."
+msgstr "İddialı işletmeler için dijital ürünler geliştiriyoruz."
+
+msgid "We build digital transformation on a stable foundation."
+msgstr "Dijital dönüşümü sağlam bir temel üzerine kuruyoruz."
+
+msgid "We create practical, secure digital products that businesses can grow with."
+msgstr "İşletmelerin birlikte büyüyebileceği kullanışlı ve güvenli dijital ürünler geliştiriyoruz."
+
+msgid "We share personal information only with your consent or when required by law."
+msgstr "Kişisel bilgileri yalnızca izninizle veya yasal zorunluluk halinde paylaşırız."
+
+msgid "We take reasonable measures to protect personal information. It is used only to discuss your project and deliver our services."
+msgstr "Kişisel bilgileri korumak için gerekli önlemleri alırız. Bu bilgiler yalnızca projenizi görüşmek ve hizmetlerimizi sunmak için kullanılır."
+
+msgid "We use personal information submitted through this website to respond to inquiries and manage projects. Information is processed only for legitimate business purposes and in accordance with applicable law."
+msgstr "Bu web sitesi üzerinden iletilen kişisel bilgileri taleplere yanıt vermek ve projeleri yönetmek için kullanırız. Bilgiler yalnızca meşru iş amaçlarıyla ve yürürlükteki mevzuata uygun olarak işlenir."
+
+msgid "Websites"
+msgstr "Web siteleri"
+
+msgid "Websites and landing pages"
+msgstr "Web siteleri ve açılış sayfaları"
+
+msgid "Websites, e-commerce, messaging and automation shaped around the way you work."
+msgstr "Çalışma biçiminize uygun web siteleri, e-ticaret, mesajlaşma ve otomasyon çözümleri."
+
+msgid "Work that delivers results"
+msgstr "Sonuç getiren işler"
+
+msgid "Years of experience"
+msgstr "Yıllık deneyim"
+
+msgid "Your name"
+msgstr "Adınız"
+
+msgid "Your request has been received. We will contact you shortly."
+msgstr "Talebiniz alındı. En kısa sürede sizinle iletişime geçeceğiz."

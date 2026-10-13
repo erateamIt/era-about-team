@@ -23,7 +23,7 @@ class ContactFormTests(TestCase):
         self.assertContains(response, "Web sayt")
         self.assertContains(
             response,
-            'href="/contact/" class="active" aria-current="page"',
+            'href="/uz/contact/" class="active" aria-current="page"',
         )
 
         response = self.client.post(

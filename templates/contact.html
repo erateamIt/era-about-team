@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
+{% load i18n i18n_extras %}
 
-{% block title %}Aloqa | ByteCore{% endblock %}
+{% block title %}{% trans "Contact" %} | ByteCore{% endblock %}
 
 {% block content %}
     <section class="page-hero">
         <div class="container narrow reveal">
-            <span class="eyebrow">Aloqa</span>
-            <h1>Biz bilan ishlashni boshlang</h1>
+            <span class="eyebrow">{% trans "Contact" %}</span>
+            <h1>{% trans "Let’s build something great together." %}</h1>
+            <p>{% trans "Tell us about your goals. Our team will get back to you to discuss the next steps." %}</p>
         </div>
     </section>
 
     <section class="section">
         <div class="container contact-layout">
             <div class="contact-card reveal">
-                <h2>Buyurtma formasi</h2>
+                <h2>{% trans "Project inquiry" %}</h2>
                 <form method="post" class="contact-form">
                     {% csrf_token %}
                     <div class="form-honeypot" aria-hidden="true">{{ form.website }}</div>
@@ -28,14 +30,14 @@
                         </div>
                         {% endif %}
                     {% endfor %}
-                    <button type="submit" class="btn btn-primary">Yuborish</button>
+                    <button type="submit" class="btn btn-primary">{% trans "Send request" %}</button>
                 </form>
             </div>
             <div class="contact-meta reveal">
-                <div class="mini-card"><span>Telefon</span><strong>{{ site_settings.phone }}</strong></div>
-                <div class="mini-card"><span>Email</span><strong>{{ site_settings.email }}</strong></div>
+                <div class="mini-card"><span>{% trans "Phone" %}</span><strong>{{ site_settings.phone }}</strong></div>
+                <div class="mini-card"><span>{% trans "Email" %}</span><strong>{{ site_settings.email }}</strong></div>
                 <div class="mini-card"><span>Telegram</span><strong>@{{ site_settings.telegram_username }}</strong></div>
-                <div class="mini-card"><span>Manzil</span><strong>{{ site_settings.address }}</strong></div>
+                <div class="mini-card"><span>{% trans "Address" %}</span><strong>{{ site_settings|localized:'address' }}</strong></div>
             </div>
         </div>
     </section>

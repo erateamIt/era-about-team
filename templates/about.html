@@ -1,24 +1,25 @@
 {% extends 'base.html' %}
+{% load i18n i18n_extras %}
 
-{% block title %}Biz haqimizda | ByteCore{% endblock %}
+{% block title %}{% trans "About" %} | ByteCore{% endblock %}
 
 {% block content %}
     <section class="page-hero">
         <div class="container narrow reveal">
-            <span class="eyebrow">Biz haqimizda</span>
-            <h1>Bizning maqsadimiz - biznesingizga kuchli raqamli platforma yaratish.</h1>
+            <span class="eyebrow">{% trans "About" %}</span>
+            <h1>{% trans "Our goal is to give your business a strong digital platform." %}</h1>
         </div>
     </section>
 
     <section class="section">
         <div class="container split-layout">
             <div class="section-copy reveal">
-                <h2>Bizning yondashuv</h2>
-                <p>ByteCore jamoasi biznes ehtiyojlarini tahlil qilib, texnik yechimlar bilan bir vaqtda strategik natijalarni ko‘zlaydi. Har bir mahsulot uchun ishlab chiqarishga tayyor arxitektura, foydalanuvchi ehtiyojlarini inobatga olgan dizayn va barqaror rivojlanish modelini taqdim etamiz.</p>
+                <h2>{% trans "Our approach" %}</h2>
+                <p>{% trans "The ByteCore team studies business needs and looks for technical solutions that also deliver strategic results. For every product we provide production-ready architecture, design grounded in user needs, and a model for sustainable growth." %}</p>
             </div>
             <div class="info-panel reveal">
-                <div class="mini-card"><span>Missiya</span><strong>Raqamli innovatsiyalarni amaliy biznes yechimiga aylantirish</strong></div>
-                <div class="mini-card"><span>Qadriyatlar</span><strong>Sifat, noziklik, xavfsizlik va tezkor ishlash</strong></div>
+                <div class="mini-card"><span>{% trans "Mission" %}</span><strong>{% trans "Turning digital innovation into practical business solutions" %}</strong></div>
+                <div class="mini-card"><span>{% trans "Values" %}</span><strong>{% trans "Quality, precision, security and fast execution" %}</strong></div>
             </div>
         </div>
     </section>
@@ -26,20 +27,20 @@
     <section class="section section-alt">
         <div class="container">
             <div class="section-heading reveal">
-                <span class="eyebrow">Jamoa</span>
-                <h2>Mutaxassislar</h2>
+                <span class="eyebrow">{% trans "Team" %}</span>
+                <h2>{% trans "Specialists" %}</h2>
             </div>
             <div class="team-grid">
                 {% for member in team_members %}
                     <article class="team-card reveal">
                         {% if member.photo %}
-                            <img src="{{ member.photo.url }}" alt="{{ member.name }}">
+                            <img src="{{ member.photo.url }}" alt="{{ member.name }}" loading="lazy" decoding="async">
                         {% else %}
                             <div class="team-avatar">{{ member.name|slice:':1' }}</div>
                         {% endif %}
                         <h3>{{ member.name }}</h3>
-                        <p class="role">{{ member.position }}</p>
-                        <p>{{ member.bio }}</p>
+                        <p class="role">{{ member|localized:'position' }}</p>
+                        <p>{{ member|localized:'bio' }}</p>
                     </article>
                 {% endfor %}
             </div>

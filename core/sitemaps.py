@@ -5,7 +5,13 @@ from projects.models import Project
 from services.models import Service
 
 
-class StaticPageSitemap(Sitemap):
+class I18nSitemap(Sitemap):
+    i18n = True
+    alternates = True
+    x_default = True
+
+
+class StaticPageSitemap(I18nSitemap):
     changefreq = "monthly"
     priority = 0.5
     page_names = (
@@ -13,6 +19,7 @@ class StaticPageSitemap(Sitemap):
         "core:about",
         "core:services",
         "core:projects",
+        "core:team",
         "core:privacy",
         "contact:contact",
     )
@@ -24,7 +31,7 @@ class StaticPageSitemap(Sitemap):
         return reverse(item)
 
 
-class ServiceSitemap(Sitemap):
+class ServiceSitemap(I18nSitemap):
     changefreq = "monthly"
     priority = 0.7
 
@@ -35,7 +42,7 @@ class ServiceSitemap(Sitemap):
         return reverse("core:service_detail", kwargs={"slug": item.slug})
 
 
-class ProjectSitemap(Sitemap):
+class ProjectSitemap(I18nSitemap):
     changefreq = "monthly"
     priority = 0.7
 

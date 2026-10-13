@@ -1,24 +1,31 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n i18n_extras %}
 
-{% block title %}{{ site_settings.meta_title|default:'ByteCore | IT xizmatlari' }}{% endblock %}
+{% block title %}{% trans "ByteCore | IT services and digital products" as home_meta_title %}{{ site_settings|localized:'meta_title'|default:home_meta_title }}{% endblock %}
 
 {% block content %}
     <section class="hero">
+        <div class="hero-media" aria-hidden="true"></div>
         <div class="container hero-grid">
             <div class="hero-copy reveal">
                 <span class="eyebrow">ByteCore</span>
-                <h1>Biz biznesingiz uchun raqamli yechimlar yaratamiz.</h1>
-                <p>ByteCore — g‘oyalaringizni zamonaviy web-platformalar, avtomatlashtirish va dasturiy mahsulotlarga aylantiruvchi IT jamoa.</p>
+                <h1>{% trans "We build digital products for ambitious businesses." %}</h1>
+                <p>{% trans "ByteCore turns ideas into modern websites, automation and software that help teams work faster and grow with confidence." %}</p>
                 <div class="hero-actions">
-                    <a class="btn btn-primary" href="{% url 'contact:contact' %}">Loyiha boshlash</a>
-                    <a class="btn btn-secondary" href="{% url 'core:projects' %}">Loyihalarimizni ko‘rish</a>
+                    <a class="btn btn-primary" href="{% url 'contact:contact' %}">{% trans "Start a project" %}</a>
+                    <a class="btn btn-secondary" href="{% url 'core:projects' %}">{% trans "View our work" %}</a>
                 </div>
+                <ul class="hero-pills">
+                    <li>{% trans "Engineering" %}</li>
+                    <li>{% trans "Automation" %}</li>
+                    <li>{% trans "Product design" %}</li>
+                    <li>{% trans "Reliable delivery" %}</li>
+                </ul>
                 {% if site_settings.experience_stat or site_settings.projects_stat or site_settings.support_stat %}
                     <ul class="hero-stats">
-                        {% if site_settings.experience_stat %}<li><strong>{{ site_settings.experience_stat }}</strong><span>Yillik tajriba</span></li>{% endif %}
-                        {% if site_settings.projects_stat %}<li><strong>{{ site_settings.projects_stat }}</strong><span>Bajarilgan loyihalar</span></li>{% endif %}
-                        {% if site_settings.support_stat %}<li><strong>{{ site_settings.support_stat }}</strong><span>Qo‘llab-quvvatlash</span></li>{% endif %}
+                        {% if site_settings.experience_stat %}<li><strong>{{ site_settings.experience_stat }}</strong><span>{% trans "Years of experience" %}</span></li>{% endif %}
+                        {% if site_settings.projects_stat %}<li><strong>{{ site_settings.projects_stat }}</strong><span>{% trans "Delivered projects" %}</span></li>{% endif %}
+                        {% if site_settings.support_stat %}<li><strong>{{ site_settings.support_stat }}</strong><span>{% trans "Support" %}</span></li>{% endif %}
                     </ul>
                 {% endif %}
             </div>
@@ -31,6 +38,7 @@
                             class="hero-logo-image"
                             src="{% static 'images/bytecore-logo-transparent.png' %}"
                             alt="{{ site_settings.company_name|default:'ByteCore' }} logo"
+                            fetchpriority="high"
                         >
                         <div class="hero-logo-pedestal" aria-hidden="true"></div>
                     </div>
@@ -42,20 +50,28 @@
     <section class="section">
         <div class="container">
             <div class="section-heading reveal">
-                <span class="eyebrow">Xizmatlar</span>
-                <h2>Biznesingizga mos yechimlar</h2>
+                <span class="eyebrow">{% trans "Services" %}</span>
+                <h2>{% trans "Solutions built around your business" %}</h2>
+                <p>{% trans "From first launch to long-term product growth, we design and ship the systems your team actually uses." %}</p>
             </div>
             <div class="card-grid services-grid">
                 {% for service in services %}
-                    <article class="card reveal">
-                        <div class="icon-box">{{ service.icon }}</div>
-                        <h3>{{ service.title }}</h3>
-                        <p>{{ service.short_description }}</p>
-                        <a href="{% url 'core:service_detail' slug=service.slug %}">Batafsil</a>
+                    <article class="card media-card reveal">
+                        {% if service.cover_image %}
+                            <img src="{{ service.cover_image.url }}" alt="{{ service|localized:'title' }}" loading="lazy" decoding="async">
+                        {% else %}
+                            <div class="card-media-fallback" aria-hidden="true"></div>
+                        {% endif %}
+                        <div class="card-body">
+                            <div class="icon-box">{{ service.icon }}</div>
+                            <h3>{{ service|localized:'title' }}</h3>
+                            <p>{{ service|localized:'short_description' }}</p>
+                            <a href="{% url 'core:service_detail' slug=service.slug %}">{% trans "Learn more" %}</a>
+                        </div>
                     </article>
                 {% empty %}
-                    <article class="card reveal"><h3>Veb-saytlar</h3><p>Biznes maqsadlariga mos zamonaviy raqamli tajriba.</p></article>
-                    <article class="card reveal"><h3>Telegram botlar</h3><p>Mijozlar bilan aloqa va ish jarayonlarini avtomatlashtirish.</p></article>
+                    <article class="card reveal"><h3>{% trans "Websites" %}</h3><p>{% trans "Modern digital experiences aligned with business goals." %}</p></article>
+                    <article class="card reveal"><h3>{% trans "Telegram bots" %}</h3><p>{% trans "Faster customer communication and automated operations." %}</p></article>
                 {% endfor %}
             </div>
         </div>
@@ -64,32 +80,33 @@
     <section class="section section-alt">
         <div class="container">
             <div class="section-heading reveal">
-                <span class="eyebrow">Portfolio</span>
-                <h2>Tanlangan loyihalar</h2>
+                <span class="eyebrow">{% trans "Portfolio" %}</span>
+                <h2>{% trans "Selected projects" %}</h2>
+                <p>{% trans "A closer look at products we have designed, built and launched with our partners." %}</p>
             </div>
             <div class="card-grid portfolio-grid">
                 {% for project in featured_projects %}
                     <article class="project-card reveal">
                         {% if project.cover_image %}
-                            <img src="{{ project.cover_image.url }}" alt="{{ project.title }}">
+                            <img src="{{ project.cover_image.url }}" alt="{{ project|localized:'title' }}" loading="lazy" decoding="async">
                         {% else %}
-                            <div class="project-placeholder">{{ project.title }}</div>
+                            <div class="project-placeholder">{{ project|localized:'title' }}</div>
                         {% endif %}
                         <div class="project-body">
-                            <h3>{{ project.title }}</h3>
-                            <p>{{ project.summary }}</p>
+                            <h3>{{ project|localized:'title' }}</h3>
+                            <p>{{ project|localized:'summary' }}</p>
                             <div class="tags">
                                 {% for tech in project.technologies %}
                                     <span>{{ tech }}</span>
                                 {% endfor %}
                             </div>
-                            <a href="{% url 'core:project_detail' slug=project.slug %}">Batafsil</a>
+                            <a href="{% url 'core:project_detail' slug=project.slug %}">{% trans "Learn more" %}</a>
                         </div>
                     </article>
                 {% empty %}
                     <article class="project-card reveal">
                         <div class="project-placeholder">NovaTrade</div>
-                        <div class="project-body"><h3>NovaTrade</h3><p>B2B savdo platformasi</p></div>
+                        <div class="project-body"><h3>NovaTrade</h3><p>{% trans "B2B commerce platform" %}</p></div>
                     </article>
                 {% endfor %}
             </div>
@@ -99,24 +116,24 @@
     <section class="section">
         <div class="container split-layout">
             <div class="section-copy reveal">
-                <span class="eyebrow">Biz haqimizda</span>
-                <h2>Raqamli transformatsiyani barqaror asosda quramiz.</h2>
-                <p>Biz kod, dizayn, avtomatlashtirish va mijoz tajribasini birgalikda boshqaramiz. Har bir loyiha uchun strategik yondashuv va ishlab chiqarishga tayyor arxitektura yaratamiz.</p>
+                <span class="eyebrow">{% trans "About" %}</span>
+                <h2>{% trans "We build digital transformation on a stable foundation." %}</h2>
+                <p>{% trans "We bring code, design, automation and customer experience together. Every project gets a strategic approach and production-ready architecture." %}</p>
                 <ul class="check-list">
-                    <li>Professional va tezkor ishlab chiqish</li>
-                    <li>Mahsulotga yo‘naltirilgan arxitektura</li>
-                    <li>Doimiy qo‘llab-quvvatlash va yangilanish</li>
+                    <li>{% trans "Professional and efficient delivery" %}</li>
+                    <li>{% trans "Product-oriented architecture" %}</li>
+                    <li>{% trans "Ongoing support and updates" %}</li>
                 </ul>
-                <a class="btn btn-secondary" href="{% url 'core:about' %}">Jamoamiz bilan tanishish</a>
+                <a class="btn btn-secondary" href="{% url 'core:about' %}">{% trans "Meet the team" %}</a>
             </div>
             <div class="info-panel reveal">
                 <div class="mini-card">
-                    <span>Missiya</span>
-                    <strong>Bizneslar uchun qulay, xavfsiz va o‘sishga qodir raqamli yechimlar yaratamiz.</strong>
+                    <span>{% trans "Mission" %}</span>
+                    <strong>{% trans "We create practical, secure digital products that businesses can grow with." %}</strong>
                 </div>
                 <div class="mini-card">
-                    <span>Qadriyatlar</span>
-                    <strong>Yengillik, ishonchlilik, bemalol hamkorlik va sifat.</strong>
+                    <span>{% trans "Values" %}</span>
+                    <strong>{% trans "Clarity, reliability, open collaboration and quality." %}</strong>
                 </div>
             </div>
         </div>
@@ -125,16 +142,16 @@
     <section class="section section-alt">
         <div class="container">
             <div class="section-heading reveal">
-                <span class="eyebrow">Ish jarayoni</span>
-                <h2>Jarayonimiz aniq va shaffof</h2>
+                <span class="eyebrow">{% trans "Process" %}</span>
+                <h2>{% trans "A clear and transparent workflow" %}</h2>
             </div>
             <div class="process-grid">
-                <div class="process-step reveal"><span>01</span><h3>Talablarni o‘rganish</h3></div>
-                <div class="process-step reveal"><span>02</span><h3>Rejalashtirish</h3></div>
-                <div class="process-step reveal"><span>03</span><h3>Dizayn va prototiplash</h3></div>
-                <div class="process-step reveal"><span>04</span><h3>Ishlab chiqish</h3></div>
-                <div class="process-step reveal"><span>05</span><h3>Testlash</h3></div>
-                <div class="process-step reveal"><span>06</span><h3>Topshirish va qo‘llab-quvvatlash</h3></div>
+                <div class="process-step reveal"><span>01</span><h3>{% trans "Discover requirements" %}</h3></div>
+                <div class="process-step reveal"><span>02</span><h3>{% trans "Plan" %}</h3></div>
+                <div class="process-step reveal"><span>03</span><h3>{% trans "Design and prototype" %}</h3></div>
+                <div class="process-step reveal"><span>04</span><h3>{% trans "Build" %}</h3></div>
+                <div class="process-step reveal"><span>05</span><h3>{% trans "Test" %}</h3></div>
+                <div class="process-step reveal"><span>06</span><h3>{% trans "Launch and support" %}</h3></div>
             </div>
         </div>
     </section>
@@ -142,20 +159,20 @@
     <section class="section">
         <div class="container">
             <div class="section-heading reveal">
-                <span class="eyebrow">Jamoa</span>
-                <h2>Texnik va biznes mutaxassislar</h2>
+                <span class="eyebrow">{% trans "Team" %}</span>
+                <h2>{% trans "Technical and business specialists" %}</h2>
             </div>
             <div class="team-grid">
                 {% for member in team_members %}
                     <article class="team-card reveal">
                         {% if member.photo %}
-                            <img src="{{ member.photo.url }}" alt="{{ member.name }}">
+                            <img src="{{ member.photo.url }}" alt="{{ member.name }}" loading="lazy" decoding="async">
                         {% else %}
                             <div class="team-avatar">{{ member.name|slice:':1' }}</div>
                         {% endif %}
                         <h3>{{ member.name }}</h3>
-                        <p class="role">{{ member.position }}</p>
-                        <p>{{ member.bio|truncatechars:110 }}</p>
+                        <p class="role">{{ member|localized:'position' }}</p>
+                        <p>{{ member|localized:'bio'|truncatechars:110 }}</p>
                     </article>
                 {% empty %}
                     <article class="team-card reveal"><div class="team-avatar">A</div><h3>Asadbek Karimov</h3><p class="role">CEO & Co-founder</p></article>
@@ -167,10 +184,10 @@
     <section class="section cta-band">
         <div class="container cta-shell reveal">
             <div>
-                <span class="eyebrow">Loyihangizga boshlanish</span>
-                <h2>Loyihangizni muhokama qilamizmi?</h2>
+                <span class="eyebrow">{% trans "Next step" %}</span>
+                <h2>{% trans "Shall we discuss your project?" %}</h2>
             </div>
-            <a class="btn btn-primary" href="{% url 'contact:contact' %}">Bog‘lanish</a>
+            <a class="btn btn-primary" href="{% url 'contact:contact' %}">{% trans "Get in touch" %}</a>
         </div>
     </section>
 {% endblock %}
