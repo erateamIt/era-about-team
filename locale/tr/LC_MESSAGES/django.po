@@ -49,14 +49,14 @@ msgstr "B2B ticaret platformu"
 msgid "Build"
 msgstr "Geliştirme"
 
-msgid "ByteCore turns ideas into modern websites, automation and software that help teams work faster and grow with confidence."
-msgstr "ByteCore, fikirleri ekiplerin daha hızlı çalışmasına ve güvenle büyümesine yardımcı olan modern web sitelerine, otomasyona ve yazılımlara dönüştürür."
+msgid "EraGate turns ideas into modern websites, automation and software that help teams work faster and grow with confidence."
+msgstr "EraGate, fikirleri ekiplerin daha hızlı çalışmasına ve güvenle büyümesine yardımcı olan modern web sitelerine, otomasyona ve yazılımlara dönüştürür."
 
-msgid "ByteCore — IT services and digital products for ambitious businesses."
-msgstr "ByteCore — iddialı işletmeler için BT hizmetleri ve dijital ürünler."
+msgid "EraGate — IT services and digital products for ambitious businesses."
+msgstr "EraGate — iddialı işletmeler için BT hizmetleri ve dijital ürünler."
 
-msgid "ByteCore | IT services and digital products"
-msgstr "ByteCore | BT hizmetleri ve dijital ürünler"
+msgid "EraGate | IT services and digital products"
+msgstr "EraGate | BT hizmetleri ve dijital ürünler"
 
 msgid "Clarity, reliability, open collaboration and quality."
 msgstr "Açıklık, güvenilirlik, açık iş birliği ve kalite."
@@ -295,8 +295,8 @@ msgstr "Projenizi kısaca anlatın..."
 msgid "Test"
 msgstr "Test"
 
-msgid "The ByteCore team studies business needs and looks for technical solutions that also deliver strategic results. For every product we provide production-ready architecture, design grounded in user needs, and a model for sustainable growth."
-msgstr "ByteCore ekibi iş ihtiyaçlarını inceler ve stratejik sonuçlar sağlayan teknik çözümler geliştirir. Her ürün için yayına hazır mimari, kullanıcı ihtiyaçlarına dayalı tasarım ve sürdürülebilir büyüme modeli sunarız."
+msgid "The EraGate team studies business needs and looks for technical solutions that also deliver strategic results. For every product we provide production-ready architecture, design grounded in user needs, and a model for sustainable growth."
+msgstr "EraGate ekibi iş ihtiyaçlarını inceler ve stratejik sonuçlar sağlayan teknik çözümler geliştirir. Her ürün için yayına hazır mimari, kullanıcı ihtiyaçlarına dayalı tasarım ve sürdürülebilir büyüme modeli sunarız."
 
 msgid "The page may have moved or may no longer be available."
 msgstr "Sayfa taşınmış veya artık kullanılamıyor olabilir."

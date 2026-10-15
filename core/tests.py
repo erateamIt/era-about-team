@@ -63,10 +63,10 @@ class LanguageRoutingTests(TestCase):
     def test_main_pages_are_available_with_language_prefixes(self):
         paths = ("", "about/", "services/", "projects/", "team/", "contact/", "privacy/")
         home_titles = {
-            "uz": "ByteCore | IT xizmatlari va raqamli mahsulotlar",
-            "ru": "ByteCore | IT-услуги и цифровые продукты",
-            "tr": "ByteCore | BT hizmetleri ve dijital ürünler",
-            "en": "ByteCore | IT services and digital products",
+            "uz": "EraGate | IT xizmatlari va raqamli mahsulotlar",
+            "ru": "EraGate | IT-услуги и цифровые продукты",
+            "tr": "EraGate | BT hizmetleri ve dijital ürünler",
+            "en": "EraGate | IT services and digital products",
         }
         for language in LANGUAGE_CODES:
             for path in paths:
@@ -226,7 +226,7 @@ class SearchEngineMetadataTests(TestCase):
             meta_description="Custom project description",
         )
         response = self.client.get(reverse("core:project_detail", args=[project.slug]))
-        self.assertContains(response, 'property="og:title" content="Custom project title | ByteCore"')
+        self.assertContains(response, 'property="og:title" content="Custom project title | EraGate"')
         self.assertContains(response, 'property="og:description" content="Custom project description"')
         self.assertContains(response, 'property="og:type" content="article"')
 

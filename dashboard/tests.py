@@ -377,7 +377,7 @@ class DashboardDataTests(TestCase):
         response = self.client.post(
             settings_url,
             {
-                "company_name": "ByteCore Studio",
+                "company_name": "EraGate Studio",
                 "tagline": "Better products",
                 "footer_text": "Build with care",
                 "phone": "+998901234567",
@@ -389,13 +389,13 @@ class DashboardDataTests(TestCase):
                 "experience_stat": "8+ yil",
                 "projects_stat": "12 loyiha",
                 "support_stat": "",
-                "meta_title": "ByteCore Studio",
+                "meta_title": "EraGate Studio",
                 "meta_description": "Digital products",
             },
         )
         self.assertRedirects(response, settings_url)
         settings.refresh_from_db()
-        self.assertEqual(settings.company_name, "ByteCore Studio")
+        self.assertEqual(settings.company_name, "EraGate Studio")
         self.assertEqual(settings.footer_text, "Build with care")
         self.assertEqual(settings.experience_stat, "8+ yil")
         self.assertEqual(settings.projects_stat, "12 loyiha")

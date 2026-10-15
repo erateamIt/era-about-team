@@ -1,16 +1,16 @@
 {% load static i18n %}
 <header class="site-header">
     <div class="container nav-shell">
-        <a href="{% url 'core:home' %}" class="brand" aria-label="ByteCore">
+        <a href="{% url 'core:home' %}" class="brand" aria-label="EraGate">
             {% if site_settings.logo %}
                 <span class="brand-logo-shell">
                     <img class="brand-logo" src="{{ site_settings.logo.url }}" alt="{{ site_settings.company_name }} logo">
                 </span>
             {% else %}
                 <span class="brand-mark-shell">
-                    <span class="brand-mark">B</span>
+                    <span class="brand-mark">E</span>
                 </span>
-                <span class="brand-text">{{ site_settings.company_name|default:"ByteCore" }}</span>
+                <span class="brand-text">{{ site_settings.company_name|default:"EraGate" }}</span>
             {% endif %}
         </a>
 

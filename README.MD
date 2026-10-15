@@ -1,7 +1,7 @@
 -- Active: 1791783222003@@127.0.0.1@3306
-# ByteCore
+# EraGate
 
-ByteCore is a production-style corporate website built with Django 5.2 LTS. The project includes:
+EraGate is a production-style corporate website built with Django 5.2 LTS. The project includes:
 
 - Dark premium corporate landing pages
 - Four public languages: Uzbek, Russian, Turkish, and English

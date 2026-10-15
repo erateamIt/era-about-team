@@ -7,7 +7,7 @@ from team.models import TeamMember, TeamMemberTranslation
 
 
 class Command(BaseCommand):
-    help = "Populate default ByteCore site content"
+    help = "Populate default EraGate site content"
 
     def handle(self, *args, **options):
         settings = SiteSettings.get_instance()
@@ -16,21 +16,21 @@ class Command(BaseCommand):
                 "tagline": "Цифровые решения для амбициозного бизнеса",
                 "footer_text": "Ваш надёжный партнёр в цифровом развитии.",
                 "address": "Ташкент, Узбекистан",
-                "meta_title": "ByteCore — IT-услуги и цифровые продукты",
+                "meta_title": "EraGate — IT-услуги и цифровые продукты",
                 "meta_description": "Разрабатываем веб-платформы, автоматизацию и цифровые продукты для развития бизнеса.",
             },
             "tr": {
                 "tagline": "İddialı işletmeler için dijital çözümler",
                 "footer_text": "Dijital gelişim yolculuğunuzda güvenilir iş ortağınız.",
                 "address": "Taşkent, Özbekistan",
-                "meta_title": "ByteCore — BT hizmetleri ve dijital ürünler",
+                "meta_title": "EraGate — BT hizmetleri ve dijital ürünler",
                 "meta_description": "İşletmeler için web platformları, otomasyon ve dijital ürünler geliştiriyoruz.",
             },
             "en": {
                 "tagline": "Digital solutions for ambitious businesses",
                 "footer_text": "Your trusted partner for digital growth.",
                 "address": "Tashkent, Uzbekistan",
-                "meta_title": "ByteCore — IT services and digital products",
+                "meta_title": "EraGate — IT services and digital products",
                 "meta_description": "We build web platforms, automation and digital products that help businesses grow.",
             },
         }
@@ -232,4 +232,4 @@ class Command(BaseCommand):
                     defaults=dict(zip(("position", "bio"), translated_fields)),
                 )
 
-        self.stdout.write(self.style.SUCCESS("ByteCore seed data created successfully."))
+        self.stdout.write(self.style.SUCCESS("EraGate seed data created successfully."))

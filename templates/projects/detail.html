@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load i18n i18n_extras %}
 
-{% block title %}{{ project|localized_default:'meta_title,title' }} | ByteCore{% endblock %}
+{% block title %}{{ project|localized_default:'meta_title,title' }} | EraGate{% endblock %}
 {% block meta_description %}{{ project|localized_default:'meta_description,summary' }}{% endblock %}
-{% block og_title %}{{ project|localized_default:'meta_title,title' }} | ByteCore{% endblock %}
+{% block og_title %}{{ project|localized_default:'meta_title,title' }} | EraGate{% endblock %}
 {% block og_description %}{{ project|localized_default:'meta_description,summary' }}{% endblock %}
 {% block og_type %}article{% endblock %}
 {% block og_image %}{% if og_image %}<meta property="og:image" content="{{ og_image }}">{% endif %}{% endblock %}

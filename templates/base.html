@@ -1,18 +1,18 @@
 {% load static i18n i18n_extras %}
-{% trans "ByteCore — IT services and digital products for ambitious businesses." as default_meta %}
+{% trans "EraGate — IT services and digital products for ambitious businesses." as default_meta %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{% block meta_description %}{{ site_settings|localized:'meta_description'|default:default_meta }}{% endblock %}">
-    <title>{% block title %}{{ site_settings|localized:'meta_title'|default:site_settings.company_name|default:'ByteCore' }}{% endblock %}</title>
+    <title>{% block title %}{{ site_settings|localized:'meta_title'|default:site_settings.company_name|default:'EraGate' }}{% endblock %}</title>
     <link rel="canonical" href="{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}">
     {% for item in language_urls %}
         <link rel="alternate" hreflang="{{ item.code }}" href="{{ request.scheme }}://{{ request.get_host }}{{ item.url }}">
     {% endfor %}
     <link rel="alternate" hreflang="x-default" href="{{ hreflang_default_url }}">
-    <meta property="og:title" content="{% block og_title %}{{ site_settings|localized:'meta_title'|default:site_settings.company_name|default:'ByteCore' }}{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}{{ site_settings|localized:'meta_title'|default:site_settings.company_name|default:'EraGate' }}{% endblock %}">
     <meta property="og:description" content="{% block og_description %}{{ site_settings|localized:'meta_description'|default:default_meta }}{% endblock %}">
     <meta property="og:type" content="{% block og_type %}website{% endblock %}">
     <meta property="og:url" content="{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}">

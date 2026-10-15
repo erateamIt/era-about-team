@@ -49,14 +49,14 @@ msgstr "B2B savdo platformasi"
 msgid "Build"
 msgstr "Ishlab chiqish"
 
-msgid "ByteCore turns ideas into modern websites, automation and software that help teams work faster and grow with confidence."
-msgstr "ByteCore g‘oyalarni jamoalarga tezroq ishlash va ishonch bilan o‘sishga yordam beradigan zamonaviy saytlar, avtomatlashtirish va dasturiy mahsulotlarga aylantiradi."
+msgid "EraGate turns ideas into modern websites, automation and software that help teams work faster and grow with confidence."
+msgstr "EraGate g‘oyalarni jamoalarga tezroq ishlash va ishonch bilan o‘sishga yordam beradigan zamonaviy saytlar, avtomatlashtirish va dasturiy mahsulotlarga aylantiradi."
 
-msgid "ByteCore — IT services and digital products for ambitious businesses."
-msgstr "ByteCore — ambitsiyali bizneslar uchun IT xizmatlari va raqamli mahsulotlar."
+msgid "EraGate — IT services and digital products for ambitious businesses."
+msgstr "EraGate — ambitsiyali bizneslar uchun IT xizmatlari va raqamli mahsulotlar."
 
-msgid "ByteCore | IT services and digital products"
-msgstr "ByteCore | IT xizmatlari va raqamli mahsulotlar"
+msgid "EraGate | IT services and digital products"
+msgstr "EraGate | IT xizmatlari va raqamli mahsulotlar"
 
 msgid "Clarity, reliability, open collaboration and quality."
 msgstr "Aniqlik, ishonchlilik, ochiq hamkorlik va sifat."
@@ -295,8 +295,8 @@ msgstr "Loyihangiz haqida qisqacha yozing..."
 msgid "Test"
 msgstr "Sinov"
 
-msgid "The ByteCore team studies business needs and looks for technical solutions that also deliver strategic results. For every product we provide production-ready architecture, design grounded in user needs, and a model for sustainable growth."
-msgstr "ByteCore jamoasi biznes ehtiyojlarini o‘rganib, strategik natija beradigan texnik yechimlarni ishlab chiqadi. Har bir mahsulot uchun ishga tayyor arxitektura, foydalanuvchi ehtiyojlariga asoslangan dizayn va barqaror o‘sish modelini taklif qilamiz."
+msgid "The EraGate team studies business needs and looks for technical solutions that also deliver strategic results. For every product we provide production-ready architecture, design grounded in user needs, and a model for sustainable growth."
+msgstr "EraGate jamoasi biznes ehtiyojlarini o‘rganib, strategik natija beradigan texnik yechimlarni ishlab chiqadi. Har bir mahsulot uchun ishga tayyor arxitektura, foydalanuvchi ehtiyojlariga asoslangan dizayn va barqaror o‘sish modelini taklif qilamiz."
 
 msgid "The page may have moved or may no longer be available."
 msgstr "Sahifa ko‘chirilgan yoki endi mavjud bo‘lmasligi mumkin."

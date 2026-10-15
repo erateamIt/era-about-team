@@ -1,11 +1,11 @@
 {% extends "dashboard/base.html" %}
 
-{% block title %}Dashboard | ByteCore{% endblock %}
+{% block title %}Dashboard | EraGate{% endblock %}
 {% block page_title %}Umumiy ko‘rinish{% endblock %}
 
 {% block content %}
     <div class="page-heading">
-        <div><p class="eyebrow">ISH JOYI</p><h1>Salom, {{ request.user.get_short_name|default:request.user.get_username }}</h1><p class="muted">ByteCore saytidagi joriy faoliyat ko‘rsatkichi.</p></div>
+        <div><p class="eyebrow">ISH JOYI</p><h1>Salom, {{ request.user.get_short_name|default:request.user.get_username }}</h1><p class="muted">EraGate saytidagi joriy faoliyat ko‘rsatkichi.</p></div>
         {% if perms.contact.view_lead %}<a class="button button-primary" href="{% url 'dashboard:leads' %}">Buyurtmalarni ko‘rish</a>{% endif %}
     </div>
 

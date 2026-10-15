@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="2000" viewBox="0 0 2000 2000">
+  <defs>
+    <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f9fcff"/>
+      <stop offset="0.22" stop-color="#aebbd0"/>
+      <stop offset="0.45" stop-color="#f8fbff"/>
+      <stop offset="0.7" stop-color="#8c9bb1"/>
+      <stop offset="0.86" stop-color="#dce4ef"/>
+      <stop offset="1" stop-color="#aab8cc"/>
+    </linearGradient>
+    <linearGradient id="silver-blue" x1="0" y1="0" x2="1" y2="0.2">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="0.38" stop-color="#adbcd2"/>
+      <stop offset="0.62" stop-color="#f5f9ff"/>
+      <stop offset="0.82" stop-color="#c4d1e4"/>
+      <stop offset="1" stop-color="#2f7bff"/>
+    </linearGradient>
+    <linearGradient id="electric-blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#71dfff"/>
+      <stop offset="0.2" stop-color="#2f7bff"/>
+      <stop offset="0.58" stop-color="#1a4fd6"/>
+      <stop offset="0.82" stop-color="#1269ed"/>
+      <stop offset="1" stop-color="#55caff"/>
+    </linearGradient>
+    <linearGradient id="word-silver" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbfdff"/>
+      <stop offset="0.17" stop-color="#c7d1df"/>
+      <stop offset="0.3" stop-color="#f4f7fb"/>
+      <stop offset="0.54" stop-color="#aab7c9"/>
+      <stop offset="0.72" stop-color="#e4eaf2"/>
+      <stop offset="1" stop-color="#8998ad"/>
+    </linearGradient>
+    <linearGradient id="word-blue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f7bff"/>
+      <stop offset="0.42" stop-color="#3785ff"/>
+      <stop offset="1" stop-color="#1a4fd6"/>
+    </linearGradient>
+    <linearGradient id="bevel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="0.18" stop-color="#dfeaff" stop-opacity="0.58"/>
+      <stop offset="0.48" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="0.82" stop-color="#283b5b" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.75"/>
+    </linearGradient>
+    <linearGradient id="blue-reflection" x1="0" y1="0" x2="1" y2="0.7">
+      <stop offset="0" stop-color="#b9f4ff" stop-opacity="0.72"/>
+      <stop offset="0.3" stop-color="#7ddcff" stop-opacity="0.16"/>
+      <stop offset="0.58" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#53bbff" stop-opacity="0.34"/>
+    </linearGradient>
+    <filter id="emblem-glow" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+  </defs>
+
+  <g transform="translate(0 69) translate(1000 1000) scale(1.1) translate(-1000 -1000)">
+  <g id="emblem">
+    <g opacity="0.32" filter="url(#emblem-glow)" fill="none" stroke="#168dff" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M350 690 565 475Q635 405 735 405H1630L1490 545H765Q680 545 615 610L535 690Z" stroke-width="28"/>
+      <path d="M300 895 455 740Q525 670 625 670H1015L875 815H650Q590 815 550 855L510 895Z" stroke-width="24"/>
+      <path d="m480 885 145 150q95 95 230 95h415q130 0 195-130l175-330h-330q-100 0-175 75l-125 125h145l75-75h190l-75 160q-30 60-90 60H875q-80 0-140-55L600 830Z" stroke-width="28"/>
+    </g>
+
+    <g stroke-linejoin="round">
+      <path d="M350 690 565 475Q635 405 735 405H1630L1490 545H765Q680 545 615 610L535 690Z"
+            fill="#34435a" stroke="#34435a" stroke-width="13" transform="translate(0 9)"/>
+      <path d="M300 895 455 740Q525 670 625 670H1015L875 815H650Q590 815 550 855L510 895Z"
+            fill="#34435a" stroke="#34435a" stroke-width="13" transform="translate(0 9)"/>
+      <path d="m480 885 145 150q95 95 230 95h415q130 0 195-130l175-330h-330q-100 0-175 75l-125 125h145l75-75h190l-75 160q-30 60-90 60H875q-80 0-140-55L600 830Z"
+            fill="#102f72" stroke="#102f72" stroke-width="13" transform="translate(0 9)"/>
+      <path d="M350 690 565 475Q635 405 735 405H1630L1490 545H765Q680 545 615 610L535 690Z"
+            fill="url(#silver-blue)" stroke="#687b98" stroke-width="11"/>
+      <path d="M350 690 565 475Q635 405 735 405H1630L1490 545H765Q680 545 615 610L535 690Z"
+            fill="none" stroke="url(#bevel)" stroke-width="5"/>
+      <path d="M300 895 455 740Q525 670 625 670H1015L875 815H650Q590 815 550 855L510 895Z"
+            fill="url(#silver)" stroke="#687b98" stroke-width="11"/>
+      <path d="M300 895 455 740Q525 670 625 670H1015L875 815H650Q590 815 550 855L510 895Z"
+            fill="none" stroke="url(#bevel)" stroke-width="5"/>
+      <path d="m480 885 145 150q95 95 230 95h415q130 0 195-130l175-330h-330q-100 0-175 75l-125 125h145l75-75h190l-75 160q-30 60-90 60H875q-80 0-140-55L600 830Z"
+            fill="url(#electric-blue)" stroke="#0c3cae" stroke-width="11"/>
+      <path d="m480 885 145 150q95 95 230 95h415q130 0 195-130l175-330h-330q-100 0-175 75l-125 125h145l75-75h190l-75 160q-30 60-90 60H875q-80 0-140-55L600 830Z"
+            fill="none" stroke="#6be2ff" stroke-opacity="0.74" stroke-width="4"/>
+      <path d="m610 858 150 145q55 52 125 52h410q70 0 106-70l90-172"
+            fill="none" stroke="url(#blue-reflection)" stroke-width="35" stroke-linecap="round" opacity="0.78"/>
+      <path d="M377 680 580 470Q650 400 750 400H1600"
+            fill="none" stroke="#ffffff" stroke-opacity="0.78" stroke-width="5" stroke-linecap="round"/>
+      <path d="M324 884 468 741Q529 681 625 681H987"
+            fill="none" stroke="#ffffff" stroke-opacity="0.56" stroke-width="4" stroke-linecap="round"/>
+      <path d="m493 889 138 140q94 91 224 91h415q122 0 184-123l158-299"
+            fill="none" stroke="#a9edff" stroke-opacity="0.65" stroke-width="5" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <text x="270" y="1365" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif"
+        font-weight="700" font-size="214" letter-spacing="10" textLength="1460"
+        lengthAdjust="spacingAndGlyphs" stroke-linejoin="round" paint-order="stroke fill">
+    <tspan fill="url(#word-silver)" stroke="#75849a" stroke-opacity="0.42" stroke-width="2">ERA</tspan><tspan fill="url(#word-blue)" stroke="#0b3eab" stroke-opacity="0.58" stroke-width="2">GATE</tspan>
+  </text>
+
+  <g fill="none" stroke="#aebbd0" stroke-width="4" stroke-linecap="round">
+    <path d="M580 1460H755"/>
+    <path d="M1245 1460H1420"/>
+  </g>
+  <text x="1000" y="1479" text-anchor="middle" fill="#d6deea"
+        font-family="DejaVu Sans, Arial, sans-serif" font-size="48" font-weight="400"
+        letter-spacing="14" textLength="440" lengthAdjust="spacingAndGlyphs">IT SOLUTIONS</text>
+  </g>
+</svg>

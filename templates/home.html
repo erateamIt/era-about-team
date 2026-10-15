@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% load static i18n i18n_extras %}
 
-{% block title %}{% trans "ByteCore | IT services and digital products" as home_meta_title %}{{ site_settings|localized:'meta_title'|default:home_meta_title }}{% endblock %}
+{% block title %}{% trans "EraGate | IT services and digital products" as home_meta_title %}{{ site_settings|localized:'meta_title'|default:home_meta_title }}{% endblock %}
 
 {% block content %}
     <section class="hero">
         <div class="hero-media" aria-hidden="true"></div>
         <div class="container hero-grid">
             <div class="hero-copy reveal">
-                <span class="eyebrow">ByteCore</span>
+                <span class="eyebrow">EraGate</span>
                 <h1>{% trans "We build digital products for ambitious businesses." %}</h1>
-                <p>{% trans "ByteCore turns ideas into modern websites, automation and software that help teams work faster and grow with confidence." %}</p>
+                <p>{% trans "EraGate turns ideas into modern websites, automation and software that help teams work faster and grow with confidence." %}</p>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="{% url 'contact:contact' %}">{% trans "Start a project" %}</a>
                     <a class="btn btn-secondary" href="{% url 'core:projects' %}">{% trans "View our work" %}</a>
@@ -32,12 +32,12 @@
             <div class="hero-visual reveal">
                 <div class="orb orb-one"></div>
                 <div class="orb orb-two"></div>
-                <div class="hero-3d-logo" aria-label="ByteCore logo">
+                <div class="hero-3d-logo" aria-label="EraGate logo">
                     <div class="hero-logo-wrap">
                         <img
                             class="hero-logo-image"
-                            src="{% static 'images/bytecore-logo-transparent.png' %}"
-                            alt="{{ site_settings.company_name|default:'ByteCore' }} logo"
+                            src="{% static 'images/eragate-logo.png' %}"
+                            alt="{{ site_settings.company_name|default:'EraGate' }} logo"
                             fetchpriority="high"
                         >
                         <div class="hero-logo-pedestal" aria-hidden="true"></div>

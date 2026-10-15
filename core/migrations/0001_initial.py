@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='SiteSettings',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('company_name', models.CharField(default='ByteCore', max_length=150)),
+                ('company_name', models.CharField(default='EraGate', max_length=150)),
                 ('tagline', models.CharField(default='IT solutions for ambitious businesses', max_length=220)),
                 ('phone', models.CharField(default='+998 90 000 00 00', max_length=32)),
                 ('email', models.EmailField(default='hello@bytecore.uz', max_length=254)),
@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('telegram_username', models.CharField(blank=True, default='bytecore_uz', max_length=64)),
                 ('instagram_url', models.URLField(blank=True, default='https://instagram.com')),
                 ('linkedin_url', models.URLField(blank=True, default='https://linkedin.com')),
-                ('logo_svg', models.TextField(blank=True, default="<svg viewBox='0 0 140 32' ...>ByteCore</svg>")),
+                ('logo_svg', models.TextField(blank=True, default="<svg viewBox='0 0 140 32' ...>EraGate</svg>")),
                 ('meta_title', models.CharField(blank=True, max_length=160)),
                 ('meta_description', models.TextField(blank=True)),
             ],

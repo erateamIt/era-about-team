@@ -8,7 +8,7 @@ class SiteSettings(TranslatableMixin, models.Model):
     translation_fields = ("tagline", "footer_text", "address", "meta_title", "meta_description")
     translation_fallback_fields = ("tagline",)
     translation_required_fields = ("tagline", "footer_text")
-    company_name = models.CharField(max_length=150, default="ByteCore")
+    company_name = models.CharField(max_length=150, default="EraGate")
     tagline = models.CharField(max_length=220, default="Ambitsiyali bizneslar uchun raqamli yechimlar")
     footer_text = models.CharField(max_length=255, blank=True, default="Raqamli kelajagingiz uchun ishonchli hamkor.")
     phone = models.CharField(max_length=32, default="+998 90 000 00 00")
@@ -32,7 +32,7 @@ class SiteSettings(TranslatableMixin, models.Model):
         blank=True,
         help_text="Qo‘llab-quvvatlash vaqti, masalan: 24/7. Bo‘sh bo‘lsa ko‘rsatilmaydi.",
     )
-    logo_svg = models.TextField(blank=True, default="<svg viewBox='0 0 140 32' ...>ByteCore</svg>")
+    logo_svg = models.TextField(blank=True, default="<svg viewBox='0 0 140 32' ...>EraGate</svg>")
     logo = models.ImageField(upload_to="site/", blank=True, null=True, validators=[validate_image_file])
     favicon = models.ImageField(upload_to="site/", blank=True, null=True, validators=[validate_image_file])
     meta_title = models.CharField(max_length=160, blank=True)

@@ -6,8 +6,8 @@
                 {% if site_settings.logo %}
                     <img class="brand-logo" src="{{ site_settings.logo.url }}" alt="{{ site_settings.company_name }} logo">
                 {% else %}
-                    <span class="brand-mark">B</span>
-                    <span class="brand-text">{{ site_settings.company_name|default:"ByteCore" }}</span>
+                    <span class="brand-mark">E</span>
+                    <span class="brand-text">{{ site_settings.company_name|default:"EraGate" }}</span>
                 {% endif %}
             </a>
             <p>{{ site_settings|localized:'footer_text'|default:site_settings.tagline }}</p>
@@ -45,7 +45,7 @@
         </div>
     </div>
     <div class="container footer-bottom">
-        <p>© {% now 'Y' %} ByteCore. {% trans "All rights reserved." %}</p>
+        <p>© {% now 'Y' %} EraGate. {% trans "All rights reserved." %}</p>
         <a href="{% url 'core:privacy' %}">{% trans "Privacy policy" %}</a>
     </div>
 </footer>

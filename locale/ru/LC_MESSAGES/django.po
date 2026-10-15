@@ -49,14 +49,14 @@ msgstr "B2B-платформа для торговли"
 msgid "Build"
 msgstr "Разработка"
 
-msgid "ByteCore turns ideas into modern websites, automation and software that help teams work faster and grow with confidence."
-msgstr "ByteCore превращает идеи в современные сайты, автоматизацию и программные продукты, помогая командам работать быстрее и уверенно расти."
+msgid "EraGate turns ideas into modern websites, automation and software that help teams work faster and grow with confidence."
+msgstr "EraGate превращает идеи в современные сайты, автоматизацию и программные продукты, помогая командам работать быстрее и уверенно расти."
 
-msgid "ByteCore — IT services and digital products for ambitious businesses."
-msgstr "ByteCore — IT-услуги и цифровые продукты для амбициозного бизнеса."
+msgid "EraGate — IT services and digital products for ambitious businesses."
+msgstr "EraGate — IT-услуги и цифровые продукты для амбициозного бизнеса."
 
-msgid "ByteCore | IT services and digital products"
-msgstr "ByteCore | IT-услуги и цифровые продукты"
+msgid "EraGate | IT services and digital products"
+msgstr "EraGate | IT-услуги и цифровые продукты"
 
 msgid "Clarity, reliability, open collaboration and quality."
 msgstr "Ясность, надёжность, открытое сотрудничество и качество."
@@ -295,8 +295,8 @@ msgstr "Кратко расскажите о вашем проекте..."
 msgid "Test"
 msgstr "Тестирование"
 
-msgid "The ByteCore team studies business needs and looks for technical solutions that also deliver strategic results. For every product we provide production-ready architecture, design grounded in user needs, and a model for sustainable growth."
-msgstr "Команда ByteCore изучает потребности бизнеса и находит технические решения, которые обеспечивают стратегический результат. Для каждого продукта мы предлагаем готовую к запуску архитектуру, дизайн с учётом потребностей пользователей и основу для устойчивого развития."
+msgid "The EraGate team studies business needs and looks for technical solutions that also deliver strategic results. For every product we provide production-ready architecture, design grounded in user needs, and a model for sustainable growth."
+msgstr "Команда EraGate изучает потребности бизнеса и находит технические решения, которые обеспечивают стратегический результат. Для каждого продукта мы предлагаем готовую к запуску архитектуру, дизайн с учётом потребностей пользователей и основу для устойчивого развития."
 
 msgid "The page may have moved or may no longer be available."
 msgstr "Возможно, страница была перемещена или больше недоступна."
